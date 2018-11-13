@@ -93,7 +93,7 @@ describe('api', function () {
 		"collectionCity": "Kaduna", "collectionState": "Kaduna", "collectionDate": "09/11/2018", "destinationAddressLine1": "No 2", 
 		"destinationAddressLine2": "Wuse", "destinationCity": "Abuja", "destinationState": "FCT", "userId": 2, "parcelStatus": "", "currentLocationAddressLine1": "", 
         "currentLocationAddressLine2": "", "currentLocationCity": "","currentLocationState": "", "dateOfUpdate": "", "timeOfUpdate": ""}}, function (error, response) {  
-            expect(response.statusCode).to.equal(200);
+            expect(response.statusCode).to.equal(404);
             done();
         });
     });

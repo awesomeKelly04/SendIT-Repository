@@ -1,6 +1,8 @@
 # SendIT-Repository
 [![Build Status](https://travis-ci.com/awesomeKelly04/SendIT-Repository.svg?branch=Development)](https://travis-ci.com/awesomeKelly04/SendIT-Repository)
 
+[![Coverage Status](https://coveralls.io/repos/github/awesomeKelly04/SendIT-Repository/badge.svg)](https://coveralls.io/github/awesomeKelly04/SendIT-Repository)
+
 Andela Boot-camp Challenge
 
 Challeng 1: Creating a simple and actractive user interface (UI)

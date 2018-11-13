@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SendIT | Courier Services | Sign up page</title>
+    <meta charset="utf-8" />
+
+      <!-- Set the viewport width to device width for mobile -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <!-- Included CSS Files -->
+      <link rel="stylesheet" href="css/style.css" type="text/css">
+      <link rel="stylesheet" href="css/pagesStyle.css" type="text/css">     
+      
+  </head>
+  <body>
+    <header>
+      <nav class="sit-nav">
+        <ul class="sub-nav">  
+          <li><a href="signup.html" >Sign Up</a></li>            
+          <li><a href="signin.html" >Sign In</a></li>       
+          <li>
+            <form method="POST" action="" class="search" id="search">
+              <input type="text" placeholder="Search..." />
+              <button type="submit" class="searchBtn" >Search
+              </button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+    
+      <a href="index.html" class="header-brand"><img src="images/sendItLogo.png" alt="SendIT"></a>
+      <nav class="sit-nav2">          
+        <ul class="main-nav">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="parcels.html">PARCELS</a></li>
+          <li class="active"><a href="index.html#t-number">TRACKING</a></li>
+          <li><a href="contactus.html">CONTACT</a></li>         
+        </ul>
+      </nav>          
+    </header>    
+    <main class="summary-views">      
+      <section class="index-parcels-view">
+        <div class="parcels-view">
+          <h3>Parcel Tracking Details</h3>
+          <form method="POST" action="#" onsubmit="">
+            <fieldset>
+            	<label>Parcel Number:</label><br>
+        				<input id="pnumber" type="text" readonly="true" name="" placeholder="Display Parcel Number"><br>
+        				<label>Parcel Content</label><br>
+        				<input id="pcontent" type="text" readonly="true" name="" placeholder="Display Parcel Content"><br>
+        				<label>Weight</label><br>
+        				<input id="weight" type="text" name="" readonly="true" placeholder="Display Weight"><br>
+        				<label>Amount</label><br>
+        				<input id="quote-amount" type="text" readonly="true" name="" placeholder="The total quote amount with display here "><br>
+        				<label>Payment Status</label><br>
+        				<input id="height" type="text" name="" readonly="true" placeholder="Display Payment Status"><br>
+                <p>Collection Details</p><br>
+                <label>Address line 1</label><br><br>
+                <input id="address-line-1" type="text" readonly="true" name="" placeholder="Display Address line 1"><br>
+                <label>City</label><br>
+                <input id="c-city" type="text" name="" readonly="true" placeholder="Display Collection City"><br>
+                <label>State</label><br>
+                <input id="c-state" type="text" name="" readonly="true" placeholder="Display Collection State"><br>
+                <label>Date</label><br>
+                <input id="c-date" type="text" name="" readonly="true" placeholder="Display Collection Date"><br><br>
+                <p>Delivery Details</p><br>
+                <label>Address line 1</label><br>
+                <input id="address-line-1" type="text" readonly="true" name="" placeholder="Display Address line 1"><br>
+                <label>Address line 2</label><br>
+                <input id="address-line-2" type="text" readonly="true" name="" placeholder="Display Address line 2"><br>
+                <label>City</label><br>
+                <input id="c-city" type="text" name="" readonly="true" placeholder="Display Delivery City"><br>
+                <label>State</label><br>
+                <input id="c-state" type="text" name="" readonly="true" placeholder="Display Delivery State"><br><br>
+            </fieldset><br>                          
+          </form>
+          <nav class="summary-nav">          
+            <ul class="summary-view-btn">
+              <li><a href="locationView.html" >View Location Details</a></li>        
+            </ul>
+          </nav><br>                  
+        </div>        
+      </section>
+    </main>
+    <footer>          
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="shipping.html">PARCELS</a></li>
+        <li><a href="index.html#t-number">TRACKING</a></li>
+        <li><a href="contactus.html">CONTACT</a></li>
+      </ul> 
+      <div class="footer-sm">
+        <a href="#">
+          <img src="images/youtube-logo.png" alt="youtube icon">
+        </a>
+        <a href="#">
+          <img src="images/facebook-logo.png" alt="facebook icon">
+        </a>
+        <a href="#">
+          <img src="images/twitter-logo.png" alt="twitter icon">
+        </a>
+      </div>  
+      <section class="footer-bottom">
+        <div>
+          <label>Copyright &copy SendIT 2018</label><br>
+        </div>        
+      </section>          
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="scripts/parcelSummary.js"></script>
+  </body>
+
+</html>

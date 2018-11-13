@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test/*.js",
+    "test": "mocha ../sendIT-API/test/*.js",
     "start": "node server.js"
   },
   "author": "",

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SendIT | Courier Services | Sign up page</title>
+    <meta charset="utf-8" />
+
+      <!-- Set the viewport width to device width for mobile -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <!-- Included CSS Files -->
+      <link rel="stylesheet" href="css/style.css" type="text/css">
+      <link rel="stylesheet" href="css/pagesStyle.css" type="text/css">     
+      
+  </head>
+  <body>
+    <header>
+      <nav class="sit-nav">
+        <ul class="sub-nav">  
+          <li><a href="signup.html" >Sign Up</a></li>            
+          <li><a href="signin.html" >Sign In</a></li>       
+          <li>
+            <form method="POST" action="" class="search" id="search">
+              <input type="text" placeholder="Search..." />
+              <button type="submit" class="searchBtn" >Search
+              </button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+    
+      <a href="index.html" class="header-brand"><img src="images/sendItLogo.png" alt="SendIT"></a>
+      <nav class="sit-nav2">          
+        <ul class="main-nav">
+          <li><a href="index.html">HOME</a></li>
+          <li class="active"><a href="parcels.html">PARCELS</a></li>
+          <li><a href="index.html#t-number">TRACKING</a></li>
+          <li><a href="contactus.html">CONTACT</a></li>         
+        </ul>
+      </nav>          
+    </header>
+    
+    <main class="index-views">      
+      <section class="index-parcels-view">
+        <div class="parcels-view">
+          <h3>Parcels Summary</h3> 
+          <nav class="summary-nav">          
+            <ul class="summary-view-btn">
+              <li><a href="#" >Make Payment</a></li>
+              <li><a href="changeDestinationView.html" >Change Destination</a></li>
+              <li><a href="displayAllOrderByUserView.html" >Display All My Orders</a></li>         
+            </ul>
+          </nav><br>         
+          <p>Please note, all parcels are delivered within Nigeria only...</p>
+          <form method="POST" action="#" onsubmit="">
+            <fieldset>
+              <label>Parcel Content</label>
+              <input id="pcontent" type="text" readonly="true" name="" placeholder="Display Parcel Content">
+              <label>Weight</label>
+              <input id="weight" type="text" name="" readonly="true" placeholder="Display Weight">
+              <label>Amount</label>
+              <input id="quote-amount" type="text" readonly="true" name="" placeholder="The total quote amount with display here "><br><br>
+              <p>Collection Details</p><br>
+              <label>Address</label>
+              <input id="address" type="text" readonly="true" name="" placeholder="Display Address">
+              <label>City</label>
+              <input id="c-city" type="text" name="" readonly="true" placeholder="Display Collection City">
+              <label>State</label>
+              <input id="c-state" type="text" name="" readonly="true" placeholder="Display Collection State">  
+              <label>Date</label>
+              <input id="c-date" type="text" name="" readonly="true" placeholder="Display Collection Date"> <br><br>
+              <p>Delivery Details</p><br>
+              <label>Address</label>
+              <input id="address" type="text" readonly="true" name="" placeholder="Display Address">
+              <label>City</label>
+              <input id="c-city" type="text" name="" readonly="true" placeholder="Display Delivery City">
+              <label>State</label>
+              <input id="c-state" type="text" name="" readonly="true" placeholder="Display Delivery State"> 
+            </fieldset><br>                     
+          </form>          
+        </div>        
+      </section>
+    </main>
+
+    <footer>          
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="shipping.html">PARCELS</a></li>
+        <li><a href="index.html#t-number">TRACKING</a></li>
+        <li><a href="contactus.html">CONTACT</a></li>
+      </ul> 
+      <div class="footer-sm">
+        <a href="#">
+          <img src="images/youtube-logo.png" alt="youtube icon">
+        </a>
+        <a href="#">
+          <img src="images/facebook-logo.png" alt="facebook icon">
+        </a>
+        <a href="#">
+          <img src="images/twitter-logo.png" alt="twitter icon">
+        </a>
+      </div>  
+      <section class="footer-bottom">
+        <div>
+          <label>Copyright &copy SendIT 2018</label>
+        </div>        
+      </section>          
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="scripts/parcelSummary.js"></script>
+  </body>
+
+</html>

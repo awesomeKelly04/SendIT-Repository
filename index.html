@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>SendIT | Courier Services | Nigeria</title>
+		<meta charset="utf-8" />
+
+	  	<!-- Set the viewport width to device width for mobile -->
+	  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	  	<!-- Included CSS Files -->
+  		<link rel="stylesheet" href="css/style.css" type="text/css">
+  		<link rel="stylesheet" href="css/pagesStyle.css" type="text/css">
+  		
+  		
+	</head>
+	<body>
+		<header>
+			<nav class="sit-nav">
+				<ul class="sub-nav">
+					<li id="admin-page-id"><a href="adminPage.html">Admin Page</a></li>		
+					<li><a href="signup.html">Sign Up</a></li>	
+					<li><a href="signin.html">Sign In</a></li>				
+					<li>
+						<form method="POST" action="" class="search" id="search">
+							<input type="text" placeholder="Search..." />
+							<button type="submit" class="searchBtn" >Search
+							</button>
+						</form>
+					</li>
+				</ul>
+			</nav>
+		
+			<a href="index.html" class="header-brand"><img src="images/sendItLogo.png" alt="SendIT"></a>
+			<nav class="sit-nav2">					
+				<ul class="main-nav">
+					<li class="active"><a href="index.html">HOME</a></li>
+					<li><a href="parcels.html">PARCELS</a></li>
+					<li><a href="index.html#t-number">TRACKING</a></li>
+					<li><a href="contactus.html">CONTACT</a></li>								
+				</ul>
+			</nav>					
+		</header>
+		
+		<main id ="content">
+			<section class="index-banner">
+				<div class="vertical-center">
+					<h1>Welcome To SendIT</h1>
+					<div class="button">
+						<a href="parcels.html" class="btn parcelsBtn">Parcels</a>
+						<a href="index.html#t-number" class="btn trackingBtn">Tracking</a>
+					</div>
+				</div>				
+			</section>
+
+			<div class="wraper">
+				<section class="index-track-box">
+					<div class="track-box">
+						<br><h3>Track Order</h3><br>
+						<form method="POST" action="#" onsubmit="return trackPage()">
+							<p>Tracking Number</p>
+							<input id="t-number" type="text" name="" placeholder="Enter Tracking Number"><br>
+							<input id="submit" type="submit" name="" value="Track"><br><br>
+							<label>Please note: your tracking number can be found in the confirmation email sent to you on placing your order.</label>
+						</form>
+					</div>				
+				</section>				
+				<section class="index-about">
+					<div class="index-box">
+						<h3>About SendIT</h3>
+						<p>SendIT is a courier service that helps users deliver parcels to different destinations.  SendIT provides courier quotes based on weight categories. </p>
+					</div>
+				</section>	
+				<section class="image2-box">
+					<div class="track-image">
+						<img src="images/track-package.jpg" alt="track-package image">
+					</div>
+				</section>
+				<section class="image1-box">
+					<div class="parcels-box">					
+						<img src="images/parcel.jpg" alt="parcel image">
+					</div>
+				</section>
+	  		</div>
+		</main>
+
+		<footer>					
+			<ul>
+				<li><a href="index.html">HOME</a></li>
+				<li><a href="parcels.html">PARCELS</a></li>
+				<li><a href="index.html#t-number">TRACKING</a></li>
+				<li><a href="contactus.html">CONTACT</a></li>
+			</ul>	
+			<div class="footer-sm">
+				<a href="#">
+					<img src="images/youtube-logo.png" alt="youtube icon">
+				</a>
+				<a href="#">
+					<img src="images/facebook-logo.png" alt="facebook icon">
+				</a>
+				<a href="#">
+					<img src="images/twitter-logo.png" alt="twitter icon">
+				</a>
+			</div>	
+			<section class="footer-bottom">
+				<div>
+					<p>Copyright &copy SendIT 2018</p>
+				</div>				
+			</section>					
+		</footer>
+
+
+		<!-- Scripts -->
+		<script src="scripts/validators.js"></script>
+	</body>
+
+</html>

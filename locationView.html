@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SendIT | Courier Services | Sign up page</title>
+    <meta charset="utf-8" />
+
+      <!-- Set the viewport width to device width for mobile -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <!-- Included CSS Files -->
+      <link rel="stylesheet" href="css/style.css" type="text/css">
+      <link rel="stylesheet" href="css/pagesStyle.css" type="text/css">     
+      
+  </head>
+  <body>
+    <header>
+      <nav class="sit-nav">
+        <ul class="sub-nav">  
+          <li><a href="signup.html" >Sign Up</a></li>            
+          <li><a href="signin.html" >Sign In</a></li>       
+          <li>
+            <form method="POST" action="" class="search" id="search">
+              <input type="text" placeholder="Search..." />
+              <button type="submit" class="searchBtn" >Search
+              </button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+    
+      <a href="index.html" class="header-brand"><img src="images/sendItLogo.png" alt="SendIT"></a>
+      <nav class="sit-nav2">          
+        <ul class="main-nav">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="parcels.html">PARCELS</a></li>
+          <li class="active"><a href="index.html#t-number">TRACKING</a></li>
+          <li><a href="contactus.html">CONTACT</a></li>         
+        </ul>
+      </nav>          
+    </header>    
+    <main class="summary-views">      
+      <section class="display-parcels-view">
+        <div class="parcels-view">
+          <h3>Parcel Current Location</h3>
+          <form method="POST" action="#" onsubmit="">                    
+            <fieldset>
+              <pre>
+      					var origin1 = {lat: 9.0765, lng: 7.3986};
+      					var origin2 = 'Abuja, Nigeria';
+      					var destinationA = 'Lagos, Nigeria';
+      					var destinationB = {lat: 6.5244, lng: 3.3792};
+	        	  </pre><br>
+	        	  <label id="output"></label><br><br>              	
+              <div id="map"></div> 				          
+            </fieldset><br>            
+          </form>
+          <table>
+            <thead>
+              <th>Order Status</th>
+              <th>Order Location</th>
+              <th>Order Update</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Order Status</td>
+                <td>Order Location</td>
+                <td>Order Update</td>
+              </tr>              
+            </tbody>
+          </table>         
+        </div>        
+      </section>
+    </main>
+    <footer>          
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="shipping.html">PARCELS</a></li>
+        <li><a href="index.html#t-number">TRACKING</a></li>
+        <li><a href="contactus.html">CONTACT</a></li>
+      </ul> 
+      <div class="footer-sm">
+        <a href="#">
+          <img src="images/youtube-logo.png" alt="youtube icon">
+        </a>
+        <a href="#">
+          <img src="images/facebook-logo.png" alt="facebook icon">
+        </a>
+        <a href="#">
+          <img src="images/twitter-logo.png" alt="twitter icon">
+        </a>
+      </div>  
+      <section class="footer-bottom">
+        <div>
+          <label>Copyright &copy SendIT 2018</label><br>
+        </div>        
+      </section>          
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="scripts/parcelSummary.js"></script>
+    <script src="scripts/map.js"></script>
+    <!-- Replace the value of the key parameter with your own API key. -->
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEOki11j-wU0kq6E_EDFVzDlM01eUjbpU&callback=initMap">
+	</script> 
+  </body>
+
+</html>

@@ -20,5 +20,8 @@
     "joi": "^14.0.6",
     "mocha": "^5.2.0",
     "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "eslint-config-rallycoding": "^3.2.0"
   }
 }

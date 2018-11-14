@@ -191,12 +191,16 @@ main section div table th {
 	color: #35424a;
 }
 
-.sit-nav ul li.active a{
+.sit-nav ul li a{
 	color: #fff;
+}
+
+.sit-nav ul li.active a{
+	color: #C2571A;
 }	
 
 .sit-nav ul li a:hover{
-	color: #fff;
+	color: #C2571A;
 }
 
 .sit-nav {

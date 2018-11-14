@@ -8,5 +8,5 @@ beforeEach(function (done) {
 });
 
 afterEach(function (done) {
-    serverInstance.close(done);
+    serverInstance.close(done)
 });

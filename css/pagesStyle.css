@@ -1,0 +1,448 @@
+.index-login-view div h3 {
+	font-family: cooper black;
+	font-size: 26px;
+	font-weight: 600;
+	color: #C2571A;
+	text-align: center;
+	line-height: 40px;	
+	padding: 10px 0px 20px 0px;
+}
+
+.index-login-view div {
+	margin: 30px;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 30px 10px;
+	float: right;
+}
+
+.index-login-view div p {
+	font-family: sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #111;
+	text-align: justify;
+	line-height: 20px;	
+	padding: 10px 0;
+	margin: 0;
+}
+
+.index-login-view div input {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.index-login-view div input[type="text"], .index-login-view input[type="password"] {
+	border: none;
+	border-bottom: 2px solid #C2571A;
+	background: transparent;
+	outline: none;
+	height: 30px;
+	color: #C2571A;
+	font-size: 12px;
+}
+
+.index-login-view div input[type="submit"] {
+	border: none;
+	background: #C2571A;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 10px;
+}
+
+.index-login-view div input[type="submit"]:hover {
+	text-decoration: none;
+	line-height: 30px;
+	font-size: 13px;
+	color: #111;
+}
+
+.index-login-view div a {
+	color: #C2571A;
+}
+
+.index-login-view div a:hover {
+	cursor: pointer;
+	background: #f3f3f3;
+	color: #111;
+}
+
+@media only screen and (min-width: 800px){
+	.login-view {
+		width: calc(70% - 230px) !important;
+	}
+
+	.index-login-view div {
+		margin: 20px auto;
+		height: 100%;
+		padding: 30px 15% 0 15%;
+		float: none;
+	}
+}
+
+/*Sign up*/
+
+.index-signup-view div h3 {
+	font-family: cooper black;
+	font-size: 26px;
+	font-weight: 600;
+	color: #C2571A;
+	text-align: center;
+	line-height: 40px;	
+	padding: 10px 0px 20px 0px;
+}
+
+.index-signup-view div {
+	margin: 10px 20px;
+	width: 20px auto;
+	height: auto;
+	box-sizing: border-box;
+	padding: 20px 30px;
+	float: none;
+}
+
+.index-signup-view div p {
+	font-family: sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #111;
+	text-align: justify;
+	line-height: 20px;	
+	padding: 10px 0;
+	margin: 0;
+}
+
+.index-signup-view div input {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.index-signup-view div input[type="text"], .index-signup-view input[type="password"], .index-signup-view input[type="email"]  {
+	border: none;
+	border-bottom: 2px solid #C2571A;
+	background: transparent;
+	outline: none;
+	height: 30px;
+	color: #C2571A;
+	font-size: 12px;
+	text-align: justify;
+}
+
+.index-signup-view div input[type="submit"] {
+	border: none;
+	background: #C2571A;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 14px;
+	border-radius: 10px;
+}
+
+.index-signup-view div input[type="submit"]:hover {
+	text-decoration: none;
+	line-height: 30px;
+	font-size: 13px;
+	color: #111;
+}
+
+.index-signup-view div a {
+	color: #C2571A;
+}
+
+.index-signup-view div a:hover {
+	cursor: pointer;
+	background: #f3f3f3;
+	color: #111;
+}
+
+@media only screen and (min-width: 800px){
+	.signup-view {
+		width: calc(80% - 280px) !important;
+	}
+
+	.index-signup-view div {
+		margin: 20px auto;
+		height: 100% auto;
+		padding: 20px 15% 0 15%;
+		float: none;
+	}
+}
+
+
+/*Parcels*/
+
+.index-parcels-view div h3 {
+	font-family: cooper black;
+	font-size: 26px;
+	font-weight: 600;
+	color: #C2571A;
+	text-align: center;
+	line-height: 40px;	
+	padding: 10px 0px 20px 0px;
+}
+
+.index-parcels-view div {
+	margin: 10px 20px;
+	width: 20px auto;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 20px 10px;
+	float: none;
+}
+
+.index-parcels-view div p {
+	font-family: sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #C2571A;
+	color: #fff;
+	text-align: center;
+	line-height: 20px;	
+	padding: 10px 0;
+	margin: 0;
+}
+
+.index-parcels-view div label {
+	font-family: sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #111;
+	text-align: justify;
+	line-height: 20px;	
+	padding: 10px 0;
+}
+
+
+.index-parcels-view div input {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.index-parcels-view div input[type="text"], .index-parcels-view input[type="password"], .index-parcels-view input[type="email"]  {
+	border: 1px solid #C2571A;
+	background: transparent;
+	outline: none;
+	height: 30px;
+	color: #C2571A;
+	font-size: 12px;	
+	margin: 10px 0px;
+}
+
+.index-parcels-view div select {
+	border: 1px solid #C2571A;
+	background: transparent;
+	outline: none;
+	height: 30px;
+	color: #111;
+	font-size: 12px;
+	margin: 10px auto;
+}
+
+.index-parcels-view div input[type="submit"] {
+	border: none;
+	background: #C2571A;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 14px;
+	border-radius: 10px;
+	width: 150px;
+	margin: 0 35%;
+}
+
+.index-parcels-view div input[type="submit"]:hover {
+	text-decoration: none;
+	line-height: 30px;
+	font-size: 12px;
+	color: #111;
+}
+
+.index-parcels-view div a {
+	color: #C2571A;
+}
+
+.index-parcels-view div a:hover {
+	cursor: pointer;
+	background: #f3f3f3;
+	color: #111;
+}
+
+@media only screen and (min-width: 800px){
+	.parcels-view {
+		width: calc(80% - 30px) !important;
+	}
+
+	.index-parcels-view div {
+		margin: 20px auto;
+		height: 100%;
+		padding: 10px 15% 0 15%;
+		
+	}
+}
+
+/*All Parcels*/
+
+.summary-views div table {
+	font-family: sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #111;
+	text-align: justify;
+	line-height: 20px;	
+	padding: 10px 0;
+	margin: 0;
+	width: 0 auto;
+	height: 0 auto;
+}
+
+.summary-views div table tbody tr td {
+	font-size: 12px;
+}
+
+.display-parcels-view div h3 {
+	font-family: cooper black;
+	font-size: 26px;
+	font-weight: 600;
+	color: #C2571A;
+	text-align: center;
+	line-height: 40px;	
+	padding: 10px 0px 20px 0px;
+}
+
+.display-parcels-view div {
+	margin: 10px 20px;
+	width: 20px auto;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 10px 30px;
+	float: left;
+}
+
+.display-parcels-view div p {
+	font-family: sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #C2571A;
+	color: #fff;
+	text-align: justify;
+	line-height: 20px;	
+	padding: 30px 0;
+	margin: 0;
+}
+
+.display-parcels-view div label {
+	font-family: sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #111;
+	text-align: justify;
+	line-height: 20px;	
+	padding: 10px 0;
+	margin: 0;
+}
+
+.display-parcels-view div input {
+	width: 30%;
+}
+
+.display-parcels-view div input[type="text"], .display-parcels-view input[type="password"], .display-parcels-view input[type="email"]  {
+	border: 1px solid #C2571A;
+	background: transparent;
+	outline: none;
+	height: 30px;
+	color: #C2571A;
+	font-size: 12px;
+	margin: 5px 20px;
+}
+
+.display-parcels-view div select {
+	border: 1px solid #C2571A;
+	background: transparent;
+	outline: none;
+	height: 30px;
+	color: #111;
+	font-size: 12px;
+	margin: 10px auto;
+}
+
+.display-parcels-view div input[type="radio"] {
+	margin: 0;
+	padding: 5px 10px;
+	display: inline-block;
+	width: 30px;
+	vertical-align: middle;
+}
+
+.display-parcels-view div input[type="submit"] {
+	border: none;
+	background: #C2571A;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 10px;
+}
+
+.display-parcels-view div input[type="submit"]:hover {
+	text-decoration: none;
+	line-height: 30px;
+	font-size: 12px;
+	color: #111;
+}
+
+.display-parcels-view div a {
+	color: #C2571A;
+}
+
+.display-parcels-view div a:hover {
+	cursor: pointer;
+	background: #f3f3f3;
+	color: #111;
+}
+
+@media only screen and (min-width: 800px){
+	.summary-views {
+		width: calc(100% - 10px) !important;
+	}
+
+	.index-parcels-view div {
+		margin: 20px auto;
+		height: 100%;
+		padding: 10px 15% 0 15%;		
+	}
+}
+
+#panel {
+	font-family: 'Roboto','sans-serif';
+	line-height: 30px;
+	padding-left: 10px;
+}
+
+#panel select, #right-panel input {
+	font-size: 13x;
+}
+
+#panel select {
+	width: 100%;
+}
+
+#panel i {
+	font-size: 12px;
+}
+
+#map {
+	height: 400px;
+	width: 100%;
+}
+
+#panel {
+	float: right;
+	width: 48%;
+	padding-left: 2%;
+}
+
+#output {
+	font-size: 11px;
+}

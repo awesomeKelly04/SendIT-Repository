@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SendIT | Courier Services | Sign up page</title>
+    <meta charset="utf-8" />
+
+      <!-- Set the viewport width to device width for mobile -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <!-- Included CSS Files -->
+      <link rel="stylesheet" href="css/style.css" type="text/css">
+      <link rel="stylesheet" href="css/pagesStyle.css" type="text/css">     
+      
+  </head>
+  <body>
+    <header>
+      <nav class="sit-nav">
+        <ul class="sub-nav">  
+          <li><a href="signup.html" >Sign Up</a></li>            
+          <li><a href="signin.html" >Sign In</a></li>      
+          <li>
+            <form method="POST" action="" class="search" id="search">
+              <input type="text" placeholder="Search..." />
+              <button type="submit" class="searchBtn" >Search
+              </button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+    
+      <a href="index.html" class="header-brand"><img src="images/sendItLogo.png" alt="SendIT"></a>
+      <nav class="sit-nav2">          
+        <ul class="main-nav">
+          <li><a href="index.html">HOME</a></li>
+          <li class="active"><a href="parcels.html">PARCELS</a></li>
+          <li><a href="index.html#t-number">TRACKING</a></li>
+          <li><a href="contactus.html">CONTACT</a></li>         
+        </ul>
+      </nav>          
+    </header>
+    
+    <main id ="content">
+      <section class="index-parcels-view">
+        <div class="parcels-view">
+          <h3>Parcels Details</h3><br>
+          <nav class="parcels-nav">          
+            <ul class="parcels-view-btn">              
+              <li><a href="displayAllOrderByUserView.html" >Display All My Orders</a></li> 
+              <li><a href="#" onclick="return cancelOrder()" >Cancel An Order</a></li>        
+            </ul>
+          </nav><br><br><br>
+          <p>Please note, all parcels are delivered within Nigeria only...</p>
+          <form method="POST" action="#" onsubmit=" return parcelSummary()">
+            <fieldset>
+                <label>Parcel Content</label>
+                  <input id="pcontent" type="text" name="" placeholder="Enter Parcel Content"><br>
+                  <label>Weight</label>
+                  <input id="weight" type="text" name="" placeholder="Enter Weight in kg"><br>
+                  <input id="submit" type="submit" name="" value="Check Quote"> <br><br><br>
+                  <label>Amount</label>
+                  <input id="quote-amount" type="text" readonly="true" name="" placeholder="The total quote amount with display here "><br><br>
+                  <p>Collection Details</p><br>
+                  <label>Address</label>
+                  <input id="address" type="text" name="" placeholder="Enter Address"><br>
+                  <label> City</label>
+                  <select class="form-control" id="collection-year" name="collection-year">
+                    <option value="0">--City--</option>
+                    <option value="Aba">Aba</option>
+                    <option value="Abakaliki">Abakaliki</option>
+                    <option value="Abeokuta">Abeokuta</option>
+                    <option value="Abuja">Abuja</option>
+                    <option value="Ado Ekiti">Ado Ekiti</option>
+                    <option value="Akure">Akure</option>
+                    <option value="Amaigbo">Amaigbo</option>
+                    <option value="Awka">Awka</option>
+                    <option value="Bama">Bama</option>
+                    <option value="Bauchi">Bauchi</option>
+                    <option value="Benin City">Benin City</option>
+                    <option value="Bida">Bida</option>
+                    <option value="Buguma">Buguma</option>
+                    <option value="Calabar">Calabar</option>
+                    <option value="Damaturu">Damaturu</option>
+                    <option value="Enugu">Enugu</option>
+                    <option value="Funtua">Funtua</option>
+                    <option value="Gashua">Gashua</option>
+                    <option value="Gboko">Gboko</option>
+                    <option value="Gbongan">Gbongan</option>
+                    <option value="Gombe">Gombe</option>
+                    <option value="Gusau">Gusau</option>
+                    <option value="Ibadan">Ibadan</option>
+                    <option value="Ife">Ife</option>
+                    <option value="Igboho">Igboho</option>
+                    <option value="Ijebu Ode">Ijebu Ode</option>
+                    <option value="Ijero">Ijero</option>
+                    <option value="Ikare">Ikare</option>
+                    <option value="Ikot Ekpene">Ikot Ekpene</option>
+                    <option value="Ila">Ila</option>
+                    <option value="Ilawe Ekiti">Ilawe Ekiti</option>
+                    <option value="Ilesa">Ilesa</option>
+                    <option value="Ilorin">Ilorin</option>
+                    <option value="Ise Ekiti">Ise Ekiti</option>
+                    <option value="Iseyin">Iseyin</option>
+                    <option value="Jalingo">Jalingo</option>
+                    <option value="Jimeta">Jimeta</option>
+                    <option value="Jos">Jos</option>
+                    <option value="Kaduna">Kaduna</option>
+                    <option value="Kano">Kano</option>
+                    <option value="Katsina">Katsina</option>
+                    <option value="Kisi">Kisi</option>
+                    <option value="Lafia">Lafia</option>
+                    <option value="Lagos">Lagos</option>
+                    <option value="Maiduguri">Maiduguri</option>
+                    <option value="Makurdi">Makurdi</option>
+                    <option value="Minna">Minna</option>
+                    <option value="Modakeke">Modakeke</option>
+                    <option value="Mubi">Mubi</option>
+                    <option value="Nsukka">Nsukka</option>
+                    <option value="Offa">Offa</option>
+                    <option value="Ogbomosho">Ogbomosho</option>
+                    <option value="Okene">Okene</option>
+                    <option value="Okigwe">Okigwe</option>
+                    <option value="Okpoko">Okpoko</option>
+                    <option value="Ondo">Ondo</option>
+                    <option value="Onitsha">Onitsha</option>
+                    <option value="Osogbo">Osogbo</option>
+                    <option value="Otukpo">Otukpo</option>
+                    <option value="Owerri">Owerri</option>
+                    <option value="Owo">Owo</option>
+                    <option value="Oyo">Oyo</option>
+                    <option value="Port Harcourt">Port Harcourt</option>
+                    <option value="Sagamu">Sagamu</option>
+                    <option value="Sapele">Sapele</option>
+                    <option value="Shaki">Shaki</option>
+                    <option value="Sokoto">Sokoto</option>
+                    <option value="Ugep">Ugep</option>
+                    <option value="Umuahia">Umuahia</option>
+                    <option value="Uromi">Uromi</option>
+                    <option value="Uyo">Uyo</option>
+                    <option value="Warri">Warri</option>
+                    <option value="Zaria">Zaria</option>
+                  </select><br>
+                  <label>State</label>
+                  <select class="form-control" id="collection-year" name="collection-year">
+                    <option value="0">--State--</option>
+                    <option value="Federal Capital Territory">Federal Capital Territory</option>
+                    <option value="Abia">Abia</option>
+                    <option value="Adamawa">Adamawa</option>
+                    <option value="Akwa Ibom">Akwa Ibom</option>
+                    <option value="Anambra">Anambra</option>
+                    <option value="Bauchi">Bauchi</option>
+                    <option value="Bayelsa">Bayelsa</option>
+                    <option value="Benue">Benue</option>
+                    <option value="Borno">Borno</option>
+                    <option value="Cross River">Cross River</option>
+                    <option value="Delta">Delta</option>
+                    <option value="Ebonyi">Ebonyi</option>
+                    <option value="Edo">Edo</option>
+                    <option value="Ekiti">Ekiti</option>
+                    <option value="Enugu">Enugu</option>
+                    <option value="Gombe">Gombe</option>
+                    <option value="Imo">Imo</option>
+                    <option value="Jigawa">Jigawa</option>
+                    <option value="Kaduna">Kaduna</option>
+                    <option value="Kano">Kano</option>
+                    <option value="Katsina">Katsina</option>
+                    <option value="Kebbi">Kebbi</option>
+                    <option value="Kogi">Kogi</option>
+                    <option value="Kwara">Kwara</option>
+                    <option value="Lagos">Lagos</option>
+                    <option value="Nasarawa">Nasarawa</option>
+                    <option value="Niger">Niger</option>
+                    <option value="Ogun">Ogun</option>
+                    <option value="Ondo">Ondo</option>
+                    <option value="Osun">Osun</option>
+                    <option value="Oyo">Oyo</option>
+                    <option value="Plateau">Plateau</option>
+                    <option value="Rivers">Rivers</option>
+                    <option value="Sokoto">Sokoto</option>
+                    <option value="Taraba">Taraba</option>
+                    <option value="Yobe">Yobe</option>
+                    <option value="Zamfara">Zamfara</option>
+                  </select><br>
+                  <label> Date</label>
+                  <select class="form-control" id="collection-day" name="collection-day">
+                    <option value="0">--Day--</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                  </select> 
+                  <select class="form-control" id="collection-month" name="collection-month">
+                    <option value="0">--Month--</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                  </select>  
+                  <select class="form-control" id="collection-year" name="collection-year">
+                    <option value="0">--Year--</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                    <option value="2029">2029</option>
+                    <option value="2030">2030</option>
+                    <option value="2031">2031</option>
+                    <option value="2032">2032</option>
+                    <option value="2033">2033</option>
+                    <option value="2034">2034</option>
+                    <option value="2035">2035</option>
+                    <option value="2036">2036</option>
+                    <option value="2037">2037</option>
+                    <option value="2038">2038</option>
+                    <option value="2039">2039</option>
+                    <option value="2040">2040</option>
+                    <option value="2041">2041</option>
+                    <option value="2042">2042</option>
+                    <option value="2043">2043</option>
+                    <option value="2044">2044</option>
+                    <option value="2045">2045</option>
+                    <option value="2046">2046</option>
+                    <option value="2047">2047</option>
+                    <option value="2048">2048</option>
+                  </select><br><br>
+                  <p>Delivery Details</p><br>
+                  <label>Address</label>
+                  <input id="address" type="text" name="" placeholder="Enter Address line 1"><br>
+                  <label> City</label>
+                  <select class="form-control" id="collection-year" name="collection-year">
+                    <option value="0">--City--</option>
+                    <option value="Aba">Aba</option>
+                    <option value="Abakaliki">Abakaliki</option>
+                    <option value="Abeokuta">Abeokuta</option>
+                    <option value="Abuja">Abuja</option>
+                    <option value="Ado Ekiti">Ado Ekiti</option>
+                    <option value="Akure">Akure</option>
+                    <option value="Amaigbo">Amaigbo</option>
+                    <option value="Awka">Awka</option>
+                    <option value="Bama">Bama</option>
+                    <option value="Bauchi">Bauchi</option>
+                    <option value="Benin City">Benin City</option>
+                    <option value="Bida">Bida</option>
+                    <option value="Buguma">Buguma</option>
+                    <option value="Calabar">Calabar</option>
+                    <option value="Damaturu">Damaturu</option>
+                    <option value="Enugu">Enugu</option>
+                    <option value="Funtua">Funtua</option>
+                    <option value="Gashua">Gashua</option>
+                    <option value="Gboko">Gboko</option>
+                    <option value="Gbongan">Gbongan</option>
+                    <option value="Gombe">Gombe</option>
+                    <option value="Gusau">Gusau</option>
+                    <option value="Ibadan">Ibadan</option>
+                    <option value="Ife">Ife</option>
+                    <option value="Igboho">Igboho</option>
+                    <option value="Ijebu Ode">Ijebu Ode</option>
+                    <option value="Ijero">Ijero</option>
+                    <option value="Ikare">Ikare</option>
+                    <option value="Ikot Ekpene">Ikot Ekpene</option>
+                    <option value="Ila">Ila</option>
+                    <option value="Ilawe Ekiti">Ilawe Ekiti</option>
+                    <option value="Ilesa">Ilesa</option>
+                    <option value="Ilorin">Ilorin</option>
+                    <option value="Ise Ekiti">Ise Ekiti</option>
+                    <option value="Iseyin">Iseyin</option>
+                    <option value="Jalingo">Jalingo</option>
+                    <option value="Jimeta">Jimeta</option>
+                    <option value="Jos">Jos</option>
+                    <option value="Kaduna">Kaduna</option>
+                    <option value="Kano">Kano</option>
+                    <option value="Katsina">Katsina</option>
+                    <option value="Kisi">Kisi</option>
+                    <option value="Lafia">Lafia</option>
+                    <option value="Lagos">Lagos</option>
+                    <option value="Maiduguri">Maiduguri</option>
+                    <option value="Makurdi">Makurdi</option>
+                    <option value="Minna">Minna</option>
+                    <option value="Modakeke">Modakeke</option>
+                    <option value="Mubi">Mubi</option>
+                    <option value="Nsukka">Nsukka</option>
+                    <option value="Offa">Offa</option>
+                    <option value="Ogbomosho">Ogbomosho</option>
+                    <option value="Okene">Okene</option>
+                    <option value="Okigwe">Okigwe</option>
+                    <option value="Okpoko">Okpoko</option>
+                    <option value="Ondo">Ondo</option>
+                    <option value="Onitsha">Onitsha</option>
+                    <option value="Osogbo">Osogbo</option>
+                    <option value="Otukpo">Otukpo</option>
+                    <option value="Owerri">Owerri</option>
+                    <option value="Owo">Owo</option>
+                    <option value="Oyo">Oyo</option>
+                    <option value="Port Harcourt">Port Harcourt</option>
+                    <option value="Sagamu">Sagamu</option>
+                    <option value="Sapele">Sapele</option>
+                    <option value="Shaki">Shaki</option>
+                    <option value="Sokoto">Sokoto</option>
+                    <option value="Ugep">Ugep</option>
+                    <option value="Umuahia">Umuahia</option>
+                    <option value="Uromi">Uromi</option>
+                    <option value="Uyo">Uyo</option>
+                    <option value="Warri">Warri</option>
+                    <option value="Zaria">Zaria</option>
+              </select><br>
+              <label>State</label>
+              <select class="form-control" id="collection-year" name="collection-year">
+                    <option value="0">--State--</option>
+                    <option value="Federal Capital Territory">Federal Capital Territory</option>
+                    <option value="Abia">Abia</option>
+                    <option value="Adamawa">Adamawa</option>
+                    <option value="Akwa Ibom">Akwa Ibom</option>
+                    <option value="Anambra">Anambra</option>
+                    <option value="Bauchi">Bauchi</option>
+                    <option value="Bayelsa">Bayelsa</option>
+                    <option value="Benue">Benue</option>
+                    <option value="Borno">Borno</option>
+                    <option value="Cross River">Cross River</option>
+                    <option value="Delta">Delta</option>
+                    <option value="Ebonyi">Ebonyi</option>
+                    <option value="Edo">Edo</option>
+                    <option value="Ekiti">Ekiti</option>
+                    <option value="Enugu">Enugu</option>
+                    <option value="Gombe">Gombe</option>
+                    <option value="Imo">Imo</option>
+                    <option value="Jigawa">Jigawa</option>
+                    <option value="Kaduna">Kaduna</option>
+                    <option value="Kano">Kano</option>
+                    <option value="Katsina">Katsina</option>
+                    <option value="Kebbi">Kebbi</option>
+                    <option value="Kogi">Kogi</option>
+                    <option value="Kwara">Kwara</option>
+                    <option value="Lagos">Lagos</option>
+                    <option value="Nasarawa">Nasarawa</option>
+                    <option value="Niger">Niger</option>
+                    <option value="Ogun">Ogun</option>
+                    <option value="Ondo">Ondo</option>
+                    <option value="Osun">Osun</option>
+                    <option value="Oyo">Oyo</option>
+                    <option value="Plateau">Plateau</option>
+                    <option value="Rivers">Rivers</option>
+                    <option value="Sokoto">Sokoto</option>
+                    <option value="Taraba">Taraba</option>
+                    <option value="Yobe">Yobe</option>
+                    <option value="Zamfara">Zamfara</option>
+                </select>      
+            </fieldset><br>            
+            <input id="submit" type="submit" name="" value="Place Order">
+          </form>
+        </div>        
+      </section>        
+    </main>
+
+    <footer>          
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="shipping.html">PARCELS</a></li>
+        <li><a href="index.html#t-number">TRACKING</a></li>
+        <li><a href="contactus.html">CONTACT</a></li>
+      </ul> 
+      <div class="footer-sm">
+        <a href="#">
+          <img src="images/youtube-logo.png" alt="youtube icon">
+        </a>
+        <a href="#">
+          <img src="images/facebook-logo.png" alt="facebook icon">
+        </a>
+        <a href="#">
+          <img src="images/twitter-logo.png" alt="twitter icon">
+        </a>
+      </div>  
+      <section class="footer-bottom">
+        <div>
+          <label>Copyright &copy SendIT 2018</label>
+        </div>        
+      </section>          
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="scripts/parcelSummary.js"></script>
+  </body>
+
+</html>

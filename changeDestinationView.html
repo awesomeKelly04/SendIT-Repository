@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SendIT | Courier Services | Sign up page</title>
+    <meta charset="utf-8" />
+
+      <!-- Set the viewport width to device width for mobile -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <!-- Included CSS Files -->
+      <link rel="stylesheet" href="css/style.css" type="text/css">
+      <link rel="stylesheet" href="css/pagesStyle.css" type="text/css">     
+      
+  </head>
+  <body>
+    <header>
+      <nav class="sit-nav">
+        <ul class="sub-nav">  
+          <li><a href="signup.html" >Sign Up</a></li>            
+          <li><a href="signin.html" >Sign In</a></li>      
+          <li>
+            <form method="POST" action="" class="search" id="search">
+              <input type="text" placeholder="Search..." />
+              <button type="submit" class="searchBtn" >Search
+              </button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+    
+      <a href="index.html" class="header-brand"><img src="images/sendItLogo.png" alt="SendIT"></a>
+      <nav class="sit-nav2">          
+        <ul class="main-nav">
+          <li><a href="index.html">HOME</a></li>
+          <li class="active"><a href="parcels.html">PARCELS</a></li>
+          <li><a href="index.html#t-number">TRACKING</a></li>
+          <li><a href="contactus.html">CONTACT</a></li>         
+        </ul>
+      </nav>          
+    </header>
+    
+    <main id ="content">
+      <section class="index-parcels-view">
+        <div class="parcels-view">
+          <h3>Change Delivery Destination</h3><br>
+          <form method="POST" action="#" onsubmit=" return changeDestination()">            
+            <fieldset>
+              <p>Delivery Details</p><br>
+              <label>Address</label>
+              <input id="address" type="text" name="" placeholder="Enter Your Address">
+              <label>City</label><br>
+              <select class="form-control" id="collection-year" name="collection-year">
+                <option value="0">--City--</option>
+                <option value="Aba">Aba</option>
+                <option value="Abakaliki">Abakaliki</option>
+                <option value="Abeokuta">Abeokuta</option>
+                <option value="Abuja">Abuja</option>
+                <option value="Ado Ekiti">Ado Ekiti</option>
+                <option value="Akure">Akure</option>
+                <option value="Amaigbo">Amaigbo</option>
+                <option value="Awka">Awka</option>
+                <option value="Bama">Bama</option>
+                <option value="Bauchi">Bauchi</option>
+                <option value="Benin City">Benin City</option>
+                <option value="Bida">Bida</option>
+                <option value="Buguma">Buguma</option>
+                <option value="Calabar">Calabar</option>
+                <option value="Damaturu">Damaturu</option>
+                <option value="Enugu">Enugu</option>
+                <option value="Funtua">Funtua</option>
+                <option value="Gashua">Gashua</option>
+                <option value="Gboko">Gboko</option>
+                <option value="Gbongan">Gbongan</option>
+                <option value="Gombe">Gombe</option>
+                <option value="Gusau">Gusau</option>
+                <option value="Ibadan">Ibadan</option>
+                <option value="Ife">Ife</option>
+                <option value="Igboho">Igboho</option>
+                <option value="Ijebu Ode">Ijebu Ode</option>
+                <option value="Ijero">Ijero</option>
+                <option value="Ikare">Ikare</option>
+                <option value="Ikot Ekpene">Ikot Ekpene</option>
+                <option value="Ila">Ila</option>
+                <option value="Ilawe Ekiti">Ilawe Ekiti</option>
+                <option value="Ilesa">Ilesa</option>
+                <option value="Ilorin">Ilorin</option>
+                <option value="Ise Ekiti">Ise Ekiti</option>
+                <option value="Iseyin">Iseyin</option>
+                <option value="Jalingo">Jalingo</option>
+                <option value="Jimeta">Jimeta</option>
+                <option value="Jos">Jos</option>
+                <option value="Kaduna">Kaduna</option>
+                <option value="Kano">Kano</option>
+                <option value="Katsina">Katsina</option>
+                <option value="Kisi">Kisi</option>
+                <option value="Lafia">Lafia</option>
+                <option value="Lagos">Lagos</option>
+                <option value="Maiduguri">Maiduguri</option>
+                <option value="Makurdi">Makurdi</option>
+                <option value="Minna">Minna</option>
+                <option value="Modakeke">Modakeke</option>
+                <option value="Mubi">Mubi</option>
+                <option value="Nsukka">Nsukka</option>
+                <option value="Offa">Offa</option>
+                <option value="Ogbomosho">Ogbomosho</option>
+                <option value="Okene">Okene</option>
+                <option value="Okigwe">Okigwe</option>
+                <option value="Okpoko">Okpoko</option>
+                <option value="Ondo">Ondo</option>
+                <option value="Onitsha">Onitsha</option>
+                <option value="Osogbo">Osogbo</option>
+                <option value="Otukpo">Otukpo</option>
+                <option value="Owerri">Owerri</option>
+                <option value="Owo">Owo</option>
+                <option value="Oyo">Oyo</option>
+                <option value="Port Harcourt">Port Harcourt</option>
+                <option value="Sagamu">Sagamu</option>
+                <option value="Sapele">Sapele</option>
+                <option value="Shaki">Shaki</option>
+                <option value="Sokoto">Sokoto</option>
+                <option value="Ugep">Ugep</option>
+                <option value="Umuahia">Umuahia</option>
+                <option value="Uromi">Uromi</option>
+                <option value="Uyo">Uyo</option>
+                <option value="Warri">Warri</option>
+                <option value="Zaria">Zaria</option>
+              </select><br>
+              <label>State</label><br>
+              <select class="form-control" id="collection-year" name="collection-year">
+                <option value="0">--State--</option>
+                <option value="Federal Capital Territory">Federal Capital Territory</option>
+                <option value="Abia">Abia</option>
+                <option value="Adamawa">Adamawa</option>
+                <option value="Akwa Ibom">Akwa Ibom</option>
+                <option value="Anambra">Anambra</option>
+                <option value="Bauchi">Bauchi</option>
+                <option value="Bayelsa">Bayelsa</option>
+                <option value="Benue">Benue</option>
+                <option value="Borno">Borno</option>
+                <option value="Cross River">Cross River</option>
+                <option value="Delta">Delta</option>
+                <option value="Ebonyi">Ebonyi</option>
+                <option value="Edo">Edo</option>
+                <option value="Ekiti">Ekiti</option>
+                <option value="Enugu">Enugu</option>
+                <option value="Gombe">Gombe</option>
+                <option value="Imo">Imo</option>
+                <option value="Jigawa">Jigawa</option>
+                <option value="Kaduna">Kaduna</option>
+                <option value="Kano">Kano</option>
+                <option value="Katsina">Katsina</option>
+                <option value="Kebbi">Kebbi</option>
+                <option value="Kogi">Kogi</option>
+                <option value="Kwara">Kwara</option>
+                <option value="Lagos">Lagos</option>
+                <option value="Nasarawa">Nasarawa</option>
+                <option value="Niger">Niger</option>
+                <option value="Ogun">Ogun</option>
+                <option value="Ondo">Ondo</option>
+                <option value="Osun">Osun</option>
+                <option value="Oyo">Oyo</option>
+                <option value="Plateau">Plateau</option>
+                <option value="Rivers">Rivers</option>
+                <option value="Sokoto">Sokoto</option>
+                <option value="Taraba">Taraba</option>
+                <option value="Yobe">Yobe</option>
+                <option value="Zamfara">Zamfara</option>
+              </select>
+            </fieldset><br>            
+            <input id="submit" type="submit" name="" value="Change Destination">
+          </form>
+        </div>        
+      </section>        
+    </main>
+
+    <footer>          
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="shipping.html">PARCELS</a></li>
+        <li><a href="index.html#t-number">TRACKING</a></li>
+        <li><a href="contactus.html">CONTACT</a></li>
+      </ul> 
+      <div class="footer-sm">
+        <a href="#">
+          <img src="images/youtube-logo.png" alt="youtube icon">
+        </a>
+        <a href="#">
+          <img src="images/facebook-logo.png" alt="facebook icon">
+        </a>
+        <a href="#">
+          <img src="images/twitter-logo.png" alt="twitter icon">
+        </a>
+      </div>  
+      <section class="footer-bottom">
+        <div>
+          <label>Copyright &copy SendIT 2018</label>
+        </div>        
+      </section>          
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="scripts/validateSignup.js"></script>
+    <script src="scripts/parcelSummary.js"></script>
+  </body>
+
+</html>

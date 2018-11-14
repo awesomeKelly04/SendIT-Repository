@@ -2,7 +2,7 @@
 	font-family: cooper black;
 	font-size: 26px;
 	font-weight: 600;
-	color: #C2571A;
+	color: #111111;
 	text-align: center;
 	line-height: 40px;	
 	padding: 10px 0px 20px 0px;
@@ -38,7 +38,7 @@
 	background: transparent;
 	outline: none;
 	height: 30px;
-	color: #C2571A;
+	color: #111;
 	font-size: 12px;
 }
 
@@ -88,7 +88,7 @@
 	font-family: cooper black;
 	font-size: 26px;
 	font-weight: 600;
-	color: #C2571A;
+	color: #111111;
 	text-align: center;
 	line-height: 40px;	
 	padding: 10px 0px 20px 0px;
@@ -125,7 +125,7 @@
 	background: transparent;
 	outline: none;
 	height: 30px;
-	color: #C2571A;
+	color: #111111;
 	font-size: 12px;
 	text-align: justify;
 }
@@ -177,7 +177,7 @@
 	font-family: cooper black;
 	font-size: 26px;
 	font-weight: 600;
-	color: #C2571A;
+	color: #111111;
 	text-align: center;
 	line-height: 40px;	
 	padding: 10px 0px 20px 0px;
@@ -225,7 +225,7 @@
 	background: transparent;
 	outline: none;
 	height: 30px;
-	color: #C2571A;
+	color: #111111;
 	font-size: 12px;	
 	margin: 10px 0px;
 }
@@ -305,7 +305,7 @@
 	font-family: cooper black;
 	font-size: 26px;
 	font-weight: 600;
-	color: #C2571A;
+	color: #111111;
 	text-align: center;
 	line-height: 40px;	
 	padding: 10px 0px 20px 0px;
@@ -352,7 +352,7 @@
 	background: transparent;
 	outline: none;
 	height: 30px;
-	color: #C2571A;
+	color: #111111;
 	font-size: 12px;
 	margin: 5px 20px;
 }

@@ -192,11 +192,15 @@ main section div table th {
 }
 
 .sit-nav ul li.active a{
-	color: #fff;
+	color: #C2571A;
 }	
 
 .sit-nav ul li a:hover{
-	color: #fff;
+	color: #C2571A;
+}
+
+.sit-nav ul li a{
+	color: #ffffff;
 }
 
 .sit-nav {
@@ -363,7 +367,7 @@ main section div table th {
 	font-family: cooper black;
 	font-size: 28px;
 	font-weight: 600;
-	color: #C2571A;
+	color: #111;
 	line-height: 40px;	
 	padding: 0 10px;
 }
@@ -415,7 +419,7 @@ main section div table th {
 	background: transparent;
 	outline: none;
 	height: 30px;
-	color: #C2571A;
+	color: #111;
 	font-size: 14px;
 }
 
@@ -488,7 +492,7 @@ main section div table th {
 
 footer {
 	width: 100%;	
-	background-color: #C2571A;
+	background-color: f58b4c;
 	margin-top: 10px;
 	overflow: hidden;
 }

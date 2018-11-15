@@ -3,8 +3,8 @@
 
 Andela Boot-camp Challenge
 
-Project: SendIT
-SendIT is a courier service that helps users deliver parcels to different destinations.  SendIT provides courier quotes based on weight categories. Your can also track your order using its tracking number.
+<h3>Project: SendIT<h3>
+<p>SendIT is a courier service that helps users deliver parcels to different destinations.  SendIT provides courier quotes based on weight categories. Your can also track your order using its tracking number.</p>
 					
 
 Challeng 1: Creating a simple and actractive user interface (UI)

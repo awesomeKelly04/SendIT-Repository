@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "nyc mocha src/test/*.js --require babel-register",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "babel src -d build",
     "start": "nodemon src/server.js --exec babel-node"
   },
@@ -30,6 +31,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "chai-http": "^4.2.0",
+    "coveralls": "^3.0.2",
     "eslint-config-rallycoding": "^3.2.0"
   }
 }

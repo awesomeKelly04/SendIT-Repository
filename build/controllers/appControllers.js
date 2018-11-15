@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _ref, _ref2;
+
 var _joi = require('joi');
 
 var _joi2 = _interopRequireDefault(_joi);
@@ -14,18 +16,17 @@ var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
-var _sendITData = require('./store/sendITData');
-
-var _sendITData2 = _interopRequireDefault(_sendITData);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var parcels = _sendITData2.default.parcels;
-var users = _sendITData2.default.users;
-var app = (0, _express2.default)();
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+var users = [{ id: 1, Name: 'Emmanuel O.', phoneNumber: '08138015039', email: 'emmanueloboh04@gmail.com', username: 'Awesome Kelly', password: 'senSe001', category: 'admin' }, { id: 2, Name: 'Michael O.', phoneNumber: '07063823938', email: 'kellyharper2k4@yahoo.com', username: 'Micky', password: 'obOh1999', category: 'user' }, { id: 3, Name: 'Aaron O.', phoneNumber: '08053467873', email: 'awesomekelly04@outlook.com', username: 'Dreamer', password: 'aarOn002', category: 'user' }];
+
+var parcels = [(_ref = { id: 1, parcelName: 'Television', parcelWeight: '12kg', parcelFee: 'N1,000', collectionAddress: 'JQ 17, FMW&H Qrts', collectionCity: 'Kaduna', collectionState: 'Kaduna', collectionDate: '8/11/2018', destinationAddress: 'Behind Police Signboard, Airport Road', destinationCity: 'Abuja', destinationState: 'FCT', userId: 2, parcelStatus: 'Delivered', currentLocationAddress: 'Behind Police Signboard, Airport Road' }, _defineProperty(_ref, 'currentLocationAddress', 'Lugbe'), _defineProperty(_ref, 'currentLocationCity', 'Abuja'), _defineProperty(_ref, 'currentLocationState', 'FCT'), _defineProperty(_ref, 'dateOfUpdate', '8/11/2018'), _defineProperty(_ref, 'timeOfUpdate', '3:00pm'), _ref), { id: 2, parcelName: 'Stove', parcelWeight: '6kg', parcelFee: 'N1,000', collectionAddress: 'JQ 17, FMW&H Qrts', collectionCity: 'Kaduna', collectionState: 'Kaduna', collectionDate: '8/11/2018', destinationAddress: 'Behind Police Signboard, Airport Road', destinationCity: 'Abuja', destinationState: 'FCT', userId: 2, parcelStatus: 'On Transit', currentLocationAddress: 'Kaduna Road', currentLocationCity: 'Kaduna', currentLocationState: 'Kaduna', dateOfUpdate: '8/11/2018', timeOfUpdate: '3:00pm' }, (_ref2 = { id: 3, parcelName: 'Radio', parcelWeight: '13kg', parcelFee: 'N1,000', collectionAddress: 'JQ 17, FMW&H Qrts', collectionCity: 'Kaduna', collectionState: 'Kaduna', collectionDate: '8/11/2018', destinationAddress: 'Behind Police Signboard, Airport Road', destinationCity: 'Abuja', destinationState: 'FCT', userId: 2, parcelStatus: '', currentLocationAddress: 'Zuba' }, _defineProperty(_ref2, 'currentLocationAddress', 'Lugbe'), _defineProperty(_ref2, 'currentLocationCity', 'Abuja'), _defineProperty(_ref2, 'currentLocationState', 'FCT'), _defineProperty(_ref2, 'dateOfUpdate', '8/11/2018'), _defineProperty(_ref2, 'timeOfUpdate', '3:00pm'), _ref2), { id: 4, parcelName: 'Laptop', parcelWeight: '3kg', parcelFee: 'N1,000', collectionAddress: 'JQ 17, FMW&H Qrts', collectionCity: 'Kaduna', collectionState: 'Kaduna', collectionDate: '8/11/2018', destinationAddress: 'Behind Police Signboard, Airport Road', destinationCity: 'Abuja', destinationState: 'FCT', userId: 3, parcelStatus: 'On Transit', currentLocationAddress: 'Garki', currentLocationCity: 'Abuja', currentLocationState: 'FCT', dateOfUpdate: '8/11/2018', timeOfUpdate: '3:00pm' }, { id: 5, parcelName: 'Shoes', parcelWeight: '1kg', parcelFee: 'N1,000', collectionAddress: 'JQ 17, FMW&H Qrts', collectionCity: 'Kaduna', collectionState: 'Kaduna', collectionDate: '8/11/2018', destinationAddress: 'Behind Police Signboard, Airport Road', destinationCity: 'Abuja', destinationState: 'FCT', userId: 3, parcelStatus: 'Delivered', currentLocationAddress: 'Behind Police Signboard, Airport Road', currentLocationCity: 'Abuja', currentLocationState: 'FCT', dateOfUpdate: '8/11/2018', timeOfUpdate: '3:00pm' }];
+
+var app = (0, _express2.default)();
 app.use(_express2.default.json());
 
 var AppControllers = function () {

@@ -6,13 +6,7 @@ var _request2 = _interopRequireDefault(_request);
 
 var _chai = require('chai');
 
-var _sendITData = require('./store/sendITData');
-
-var _sendITData2 = _interopRequireDefault(_sendITData);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var parcels = _sendITData2.default.parcels;
 
 describe('api', function () {
     it('should return all percels', function (done) {
@@ -86,7 +80,7 @@ describe('api', function () {
     });
 
     it('should return a new parcel on POST', function (done) {
-        _request2.default.post('http://localhost:8800/api/v1/parcels', { json: true, body: { "id": parcels.length + 1, "parcelName": "Fan", "parcelValue": "N8000",
+        _request2.default.post('http://localhost:8800/api/v1/parcels', { json: true, body: { "id": 6, "parcelName": "Fan", "parcelValue": "N8000",
                 "parcelWeight": "23kg", "parcelLength": "", "parcelwidth": "", "parcelheight": "", "parcelFee": "N800", "collectionAddressLine1": "No 3, Block road", "collectionAddressLine2": "Narayi",
                 "collectionCity": "Kaduna", "collectionState": "Kaduna", "collectionDate": "09/11/2018", "destinationAddressLine1": "No 2",
                 "destinationAddressLine2": "Wuse", "destinationCity": "Abuja", "destinationState": "FCT", "userId": 2, "parcelStatus": "", "currentLocationAddressLine1": "",

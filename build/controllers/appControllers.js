@@ -14,7 +14,7 @@ var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
-var _sendITData = require('../store/sendITData');
+var _sendITData = require('./store/sendITData');
 
 var _sendITData2 = _interopRequireDefault(_sendITData);
 

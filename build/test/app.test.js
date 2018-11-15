@@ -6,7 +6,13 @@ var _request2 = _interopRequireDefault(_request);
 
 var _chai = require('chai');
 
+var _sendITData = require('./store/sendITData');
+
+var _sendITData2 = _interopRequireDefault(_sendITData);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var parcels = _sendITData2.default.parcels;
 
 describe('api', function () {
     it('should return all percels', function (done) {

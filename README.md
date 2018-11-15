@@ -1,5 +1,5 @@
 # SendIT-Repository
-[![Build Status](https://travis-ci.com/awesomeKelly04/SendIT-Repository.svg?branch=development)](https://travis-ci.com/awesomeKelly04/SendIT-Repository)
+[![Build Status](https://travis-ci.com/awesomeKelly04/SendIT-Repository.svg?branch=development)](https://travis-ci.com/awesomeKelly04/SendIT-Repository) [![Coverage Status](https://coveralls.io/repos/github/awesomeKelly04/SendIT-Repository/badge.svg?branch=APIv1)](https://coveralls.io/github/awesomeKelly04/SendIT-Repository?branch=APIv1)
 
 Andela Boot-camp Challenge
 

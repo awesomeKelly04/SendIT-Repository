@@ -86,9 +86,8 @@ class AppControllers{
    }
 }
 
-
-function validateParcel(parcel){
- 	const valid = Joi.string().min(3).required();
+const validateParcel = (parcel) => { 
+	const valid = Joi.string().min(3).required();
  	const schema = {
  		parcelName: valid,
  		parcelWeight: valid, 
@@ -102,17 +101,14 @@ function validateParcel(parcel){
  		destinationState: valid, 
  		userId: valid
  	};
+	return Joi.validate(parcel, schema);
+};
 
- 	return Joi.validate(parcel, schema);
-}
-
-function validateParcelCancelOrder(parcel){
- 	const valid = Joi.string().min(3).required();
+const validateParcelCancelOrder = (parcel) => { 
+	const valid = Joi.string().min(3).required();
  	const schema = {
  		parcelStatus: valid
 	};
 
  	return Joi.validate(parcel, schema);
-}
-
-export default AppControllers;
+};

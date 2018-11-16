@@ -33,7 +33,6 @@
     "babel-preset-env": "^1.7.0",
     "chai-http": "^4.2.0",
     "coveralls": "^3.0.2",
-    "eslint-config-rallycoding": "^3.2.0",
-    "heroku config":"set NPM_CONFIG_PRODUCTION=false"
+    "eslint-config-rallycoding": "^3.2.0"
   }
 }

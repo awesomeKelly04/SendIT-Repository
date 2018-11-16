@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import appAPI from './router/appRouter';
-const PORT = process.env || 8800;
+const PORT = process.env.PORT || 8800;
 const app = express();
 
 function run(callback) {

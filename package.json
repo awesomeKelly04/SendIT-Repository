@@ -9,6 +9,9 @@
   "scripts": {
     "test": "nyc mocha src/test/*.js --require babel-register",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "postinstall": "bower install && grunt build",
+    "heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
+    "heroku-postbuild": "echo This runs afterwards.",
     "build": "babel src -d build",
     "start": "nodemon src/server.js --exec babel-node"
   },

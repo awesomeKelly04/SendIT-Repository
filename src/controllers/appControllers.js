@@ -112,3 +112,5 @@ const validateParcelCancelOrder = (parcel) => {
 
  	return Joi.validate(parcel, schema);
 };
+
+export default AppControllers;

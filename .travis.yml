@@ -1,0 +1,10 @@
+language: node_js
+node_js: 
+  - stable
+install :
+  - npm install
+script: 
+  - npm run test
+after_success: 
+  - npm run coverage
+94ed632f87619b66ed91e97e523108068939f73a47bbbcc5eb09a452c77fb6f5

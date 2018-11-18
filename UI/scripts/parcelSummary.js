@@ -1,19 +1,19 @@
-function parcelSummary(){
+const parcelSummary = () => {
 	window.location.replace("parcelSummary.html");
 	return false;
 }
 
-function changeDestination(){
+const changeDestination = () => {
 	window.location.replace("parcelSummary.html");
 	return false;
 }
 
-function cancelOrder(){
+const cancelOrder = () => {
 	window.location.replace("displayAllOrderByUserView.html");
 	return false;
 }
 
-function changeLocation(){
+const changeLocation = () => {
 	window.location.replace("adminPage.html");
 	return false;
 }

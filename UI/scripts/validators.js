@@ -1,16 +1,13 @@
 validateSignupForm = () => {
     var fname = document.getElementById('fname').value,
         lname = document.getElementById('lname').value,
-        address = document.getElementById('address').value,
         pnumber = document.getElementById('pnumber').value,
         email = document.getElementById('email').value,
-        genderM = document.getElementById('genderM').value,
-        genderF = document.getElementById('genderF').value,
         username = document.getElementById('username').value,
         password = document.getElementById('password').value;
         repassword = document.getElementById('repassword').value;
 
-    if (fname === "" || lname === "" || address === "" || pnumber === "" || email === "" || password === "" || username === "" || (password != repassword) || (genderF === "" && genderM === "" )) {
+    if (fname === "" || lname === "" || address === "" || pnumber === "" || email === "" || password === "" || username === "" || (password != repassword)) {
         alert("please all field are required");
         return false;
     }

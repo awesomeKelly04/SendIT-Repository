@@ -1,4 +1,4 @@
-function initMap() {
+const initMap = () => {
 	var bounds = new google.maps.LatLngBounds();
 	var markersArray = [];
 
@@ -20,7 +20,7 @@ function initMap() {
 		unitSystem: google.maps.UnitSystem.METRIC,
 		avoidHighways: false,
 		avoidTolls: false
-	}, function(response, status) {
+	}, (response, status) => {
 		if (status !== 'OK') {
 		alert('Error was: ' + status);
 		} else {
@@ -62,7 +62,7 @@ function initMap() {
 	});
 }
 
-function deleteMarkers(markersArray) {
+const deleteMarkers = (markersArray) => {
 	for (var i = 0; i < markersArray.length; i++) {
 		markersArray[i].setMap(null);
 	}

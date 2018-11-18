@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SendIT | Courier Services | Sign up page</title>
+    <title>SendIT | Courier Services | Sign in page</title>
     <meta charset="utf-8" />
 
       <!-- Set the viewport width to device width for mobile -->
@@ -9,50 +9,42 @@
 
       <!-- Included CSS Files -->
       <link rel="stylesheet" href="css/style.css" type="text/css">
-      <link rel="stylesheet" href="css/pagesStyle.css" type="text/css">     
+      <link rel="stylesheet" href="css/pagesStyle.css" type="text/css">
+      
       
   </head>
   <body>
     <header>
       <nav class="sit-nav">
-        <ul class="sub-nav">  
-          <li><a href="signin.html" >Sign In</a></li> 
-          <li class="active"><a href="signup.html" >Sign Up</a></li>
+        <ul class="sub-nav">
+          <li class="active"><a href="signin.html" >Sign In</a></li> 
+          <li><a href="signup.html" >Sign Up</a></li>
         </ul>
       </nav>
     
-      <a href="index.html" class="header-brand"><img src="images/sendItLogo.png" alt="SendIT"></a>
+      <a href="../index.html" class="header-brand"><img src="images/sendItLogo.png" alt="SendIT"></a>
       <nav class="sit-nav2">          
         <ul class="main-nav">
-          <li class="active"><a href="index.html" >HOME</a></li>
+          <li class="active"><a href="../index.html">HOME</a></li>
           <li><a href="parcels.html">PARCELS</a></li>
-          <li><a href="index.html#t-number">TRACKING</a></li>
+          <li><a href="../index.html#t-number">TRACKING</a></li>
           <li><a href="contactus.html">CONTACT</a></li>         
         </ul>
       </nav>          
     </header>
     
     <main id ="content">
-      <section class="index-signup-view">
-        <div class="signup-view">
-          <h3>Register</h3>
-          <form method="POST" action="#" onsubmit="return validateSignupForm()">
-            <p>First Name</p>
-            <input id="fname" type="text" name="" placeholder="Enter First Name">
-            <p>Last Name</p>
-            <input id="lname" type="text" name="" placeholder="Enter Last Name">
-            <p>Phone Number</p>
-            <input id="pnumber" type="text" name="" placeholder="Enter Phone Number">
-            <p>Email</p>
-            <input id="email" type="email" name="" placeholder="Enter Email">
+      <section class="index-login-view">
+        <div class="login-view">
+          <h3>Login</h3>
+          <form method="POST" action="#" onsubmit="return validateSigninForm()">
             <p>Username</p>
             <input id="username" type="text" name="" placeholder="Enter Username">
             <p>Password</p>
             <input id="password" type="password" name="" placeholder="Enter Password">
-            <p>Retype Password</p>
-            <input id="repassword" type="password" name="" placeholder="Retype Password"><br>
-            <input id="submit" type="submit" name="" value="Sign up">            
-            <a href="signin.html" >Sign in</a>
+            <input id="submit" type="submit" name="" value="Login">
+            <a href="#">Forgot Password?</a><br><br>
+            <a href="signup.html">Register</a>
           </form>
         </div>        
       </section>        
@@ -60,9 +52,9 @@
 
     <footer>          
       <ul>
-        <li><a href="index.html">HOME</a></li>
+        <li><a href="../index.html">HOME</a></li>
         <li><a href="parcels.html">PARCELS</a></li>
-        <li><a href="index.html#t-number">TRACKING</a></li>
+        <li><a href="../index.html#t-number">TRACKING</a></li>
         <li><a href="contactus.html">CONTACT</a></li>
       </ul> 
       <div class="footer-sm">

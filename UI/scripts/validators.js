@@ -1,4 +1,4 @@
-function validateSignupForm() {
+validateSignupForm = () => {
     var fname = document.getElementById('fname').value,
         lname = document.getElementById('lname').value,
         address = document.getElementById('address').value,
@@ -16,17 +16,17 @@ function validateSignupForm() {
     }
     else {
         alert("You have successfully logged in");
-        window.location.replace("index.html");
+        window.location.replace("../index.html");
         return false;
     }
 }
 
-function trackPage(){
-    window.location.replace("tracking.html");
+trackPage = () => {
+    window.location.replace("UI/tracking.html");
     return false;
 }
 
-function validateSigninForm() {
+validateSigninForm = () => {
     var username = document.getElementById('username').value,
         password = document.getElementById('password').value;
 
@@ -48,7 +48,7 @@ function validateSigninForm() {
     }
     else {
         alert("You have successfully logged in");
-        window.location.replace("index.html");
+        window.location.replace("../index.html");
         return false;
     }
 }

@@ -72,7 +72,7 @@ describe('api', function () {
         });
     });
 
-    it('should return a new parcel on POST', function (done) {
+    it('should return a updated parcel on POST', function (done) {
         _request2.default.put('http://localhost:8800/api/v1/parcels/3/cancel', { json: true, body: { "parcelStatus": "" } }, function (error, response) {
             (0, _chai.expect)(response.statusCode).to.equal(404);
             done();
@@ -80,10 +80,10 @@ describe('api', function () {
     });
 
     it('should return a new parcel on POST', function (done) {
-        _request2.default.post('http://localhost:8800/api/v1/parcels', { json: true, body: { "id": 6, "parcelName": "Fan", "parcelValue": "N8000",
+        _request2.default.post('http://localhost:8800/api/v1/parcels', { json: true, body: { "id": "6", "parcelName": "Fan", "parcelValue": "N8000",
                 "parcelWeight": "23kg", "parcelLength": "", "parcelwidth": "", "parcelheight": "", "parcelFee": "N800", "collectionAddress": "No 3, Block road, Narayi",
                 "collectionCity": "Kaduna", "collectionState": "Kaduna", "collectionDate": "09/11/2018", "destinationAddress": "No 2, Wuse",
-                "destinationCity": "Abuja", "destinationState": "FCT", "userId": 2, "parcelStatus": "", "currentLocationAddress": "",
+                "destinationCity": "Abuja", "destinationState": "FCT", "userId": "2", "parcelStatus": "", "currentLocationAddress": "",
                 "currentLocationCity": "", "currentLocationState": "", "dateOfUpdate": "", "timeOfUpdate": "" } }, function (error, response) {
             (0, _chai.expect)(response.statusCode).to.equal(200);
             done();
@@ -91,9 +91,9 @@ describe('api', function () {
     });
 
     it('should fail on a new parcel on POST', function (done) {
-        _request2.default.post('http://localhost:8800/api/v1/parcels', { json: true, body: { "id": 6, "parcelName": "",
+        _request2.default.post('http://localhost:8800/api/v1/parcels', { json: true, body: { "id": "6", "parcelName": "",
                 "parcelWeight": "", "parcelFee": "", "collectionAddress": "", "collectionCity": "", "collectionState": "", "collectionDate": "", "destinationAddress": "",
-                "destinationCity": "", "destinationState": "", "userId": 0 } }, function (error, response) {
+                "destinationCity": "", "destinationState": "", "userId": "0" } }, function (error, response) {
             (0, _chai.expect)(response.statusCode).to.equal(404);
             done();
         });

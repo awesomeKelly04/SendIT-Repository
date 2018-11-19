@@ -73,10 +73,9 @@ describe('api', () => {
     });
 
     it('should return a new parcel on POST',  (done) =>  {
-        request.post('http://localhost:8800/api/v1/parcels', {json: true, body: {"id": "6", "parcelName": "Fan", "parcelValue": "N8000", 
-        "parcelWeight": "23kg", "parcelLength": "", "parcelwidth": "", "parcelheight": "", "parcelFee": "N800", "collectionAddress": "No 3, Block road, Narayi", 
+        request.post('http://localhost:8800/api/v1/parcels', {json: true, body: {"id": 6, "parcelName": "Fan", "parcelWeight": "23kg", "parcelFee": "N800", "collectionAddress": "No 3, Block road, Narayi", 
 		"collectionCity": "Kaduna", "collectionState": "Kaduna", "collectionDate": "09/11/2018", "destinationAddress": "No 2, Wuse", 
-		"destinationCity": "Abuja", "destinationState": "FCT", "userId": "2", "parcelStatus": "", "currentLocationAddress": "", 
+		"destinationCity": "Abuja", "destinationState": "FCT", "userId": 2, "parcelStatus": "", "currentLocationAddress": "", 
         "currentLocationCity": "","currentLocationState": "", "dateOfUpdate": "", "timeOfUpdate": ""}},  (error, response) =>  {  
             expect(response.statusCode).to.equal(200);
             done();

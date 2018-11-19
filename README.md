@@ -1,5 +1,5 @@
 # SendIT-Repository
-[![Build Status](https://travis-ci.com/awesomeKelly04/SendIT-Repository.svg?branch=development)](https://travis-ci.com/awesomeKelly04/SendIT-Repository) [![Coverage Status](https://coveralls.io/repos/github/awesomeKelly04/SendIT-Repository/badge.svg?branch=APIv1)](https://coveralls.io/github/awesomeKelly04/SendIT-Repository?branch=APIv1) [![Maintainability](https://api.codeclimate.com/v1/badges/9c9177d74fbecca8e93a/maintainability)](https://codeclimate.com/github/awesomeKelly04/SendIT-Repository/maintainability)
+[![Build Status](https://travis-ci.com/awesomeKelly04/SendIT-Repository.svg?branch=development)](https://travis-ci.com/awesomeKelly04/SendIT-Repository) [![Coverage Status](https://coveralls.io/repos/github/awesomeKelly04/SendIT-Repository/badge.svg?branch=ch-APIv1-restructure-%23162040202)](https://coveralls.io/github/awesomeKelly04/SendIT-Repository?branch=ch-APIv1-restructure-%23162040202) [![Maintainability](https://api.codeclimate.com/v1/badges/9c9177d74fbecca8e93a/maintainability)](https://codeclimate.com/github/awesomeKelly04/SendIT-Repository/maintainability)
 
 Andela Boot-camp Challenge
 

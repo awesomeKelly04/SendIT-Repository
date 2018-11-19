@@ -1,6 +1,6 @@
 import server from '../server';
 
-var serverInstance;
+const serverInstance;
 
 beforeEach( (done) => {
     serverInstance = server.run(done);

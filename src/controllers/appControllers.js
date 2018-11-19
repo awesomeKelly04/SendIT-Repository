@@ -12,6 +12,10 @@ app.use(bodyParser.text());
 
 class AppControllers{
 	
+	static default(req, res) {
+		res.send("Welcome To SendIT API");
+	}
+
 	static getAllParcels(req, res) {
 		res.send(parcels);
 	}

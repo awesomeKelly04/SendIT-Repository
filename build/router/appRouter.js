@@ -16,6 +16,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var router = _express2.default.Router();
 
+router.get('/', _appControllers2.default.default);
+
 router.get('/api/v1/parcels', _appControllers2.default.getAllParcels);
 
 router.get('/api/v1/parcels/:id', _appControllers2.default.getParcel);

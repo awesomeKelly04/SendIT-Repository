@@ -3,6 +3,8 @@ import AppControllers from '../controllers/appControllers';
 
 const router = express.Router();
 
+router.get('/', AppControllers.default);
+
 router.get('/api/v1/parcels', AppControllers.getAllParcels);
 
 router.get('/api/v1/parcels/:id', AppControllers.getParcel);

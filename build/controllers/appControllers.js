@@ -40,6 +40,11 @@ var AppControllers = function () {
 	}
 
 	_createClass(AppControllers, null, [{
+		key: 'default',
+		value: function _default(req, res) {
+			res.send("Welcome To SendIT API");
+		}
+	}, {
 		key: 'getAllParcels',
 		value: function getAllParcels(req, res) {
 			res.send(parcels);

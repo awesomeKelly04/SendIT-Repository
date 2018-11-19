@@ -88,6 +88,7 @@ class AppControllers{
 			dateOfUpdate: req.body.dateOfUpdate, 
 			timeOfUpdate: req.body.timeOfUpdate
 		};
+		
 		parcels.push(newParcel);
 		res.send(newParcel);
    }

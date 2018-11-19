@@ -25,7 +25,9 @@ app.use(_bodyParser2.default.json());
 var validateParcel = function validateParcel(parcel) {
     var valid = _joi2.default.string().min(3).required();
     var validId = _joi2.default.number().min(1).required();
+    var leaveEmpty = _joi2.default.any();
     var schema = {
+        id: validId,
         parcelName: valid,
         parcelWeight: valid,
         parcelFee: valid,
@@ -36,7 +38,13 @@ var validateParcel = function validateParcel(parcel) {
         destinationAddress: valid,
         destinationCity: valid,
         destinationState: valid,
-        userId: validId
+        userId: validId,
+        parcelStatus: leaveEmpty,
+        currentLocationAddress: leaveEmpty,
+        currentLocationCity: leaveEmpty,
+        currentLocationState: leaveEmpty,
+        dateOfUpdate: leaveEmpty,
+        timeOfUpdate: leaveEmpty
     };
     return _joi2.default.validate(parcel, schema);
 };

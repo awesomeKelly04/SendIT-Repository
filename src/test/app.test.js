@@ -2,6 +2,13 @@ import request from 'request';
 import { expect } from 'chai';
 
 describe('api', () => {
+    it('should return Welcome to sendIT API',  (done) =>  {
+        request.get('http://localhost:8800/',  (error, response) =>  {
+            expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });
+
     it('should return all percels',  (done) =>  {
         request.get('http://localhost:8800/api/v1/parcels',  (error, response) =>  {
             expect(response.statusCode).to.equal(200);

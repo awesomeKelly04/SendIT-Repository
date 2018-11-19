@@ -8,6 +8,7 @@ app.use(bodyParser.json());
 
 const validateParcel = (parcel) => { 
     const valid = Joi.string().min(3).required();
+    const validId = Joi.number().min(1).required();
      const schema = {
          parcelName: valid,
          parcelWeight: valid, 
@@ -19,7 +20,7 @@ const validateParcel = (parcel) => {
          destinationAddress: valid,  
          destinationCity: valid, 
          destinationState: valid, 
-         userId: valid
+         userId: validId
      };
     return Joi.validate(parcel, schema);
 };

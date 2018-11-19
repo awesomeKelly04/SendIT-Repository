@@ -80,10 +80,9 @@ describe('api', function () {
     });
 
     it('should return a new parcel on POST', function (done) {
-        _request2.default.post('http://localhost:8800/api/v1/parcels', { json: true, body: { "id": "6", "parcelName": "Fan", "parcelValue": "N8000",
-                "parcelWeight": "23kg", "parcelLength": "", "parcelwidth": "", "parcelheight": "", "parcelFee": "N800", "collectionAddress": "No 3, Block road, Narayi",
+        _request2.default.post('http://localhost:8800/api/v1/parcels', { json: true, body: { "id": 6, "parcelName": "Fan", "parcelWeight": "23kg", "parcelFee": "N800", "collectionAddress": "No 3, Block road, Narayi",
                 "collectionCity": "Kaduna", "collectionState": "Kaduna", "collectionDate": "09/11/2018", "destinationAddress": "No 2, Wuse",
-                "destinationCity": "Abuja", "destinationState": "FCT", "userId": "2", "parcelStatus": "", "currentLocationAddress": "",
+                "destinationCity": "Abuja", "destinationState": "FCT", "userId": 2, "parcelStatus": "", "currentLocationAddress": "",
                 "currentLocationCity": "", "currentLocationState": "", "dateOfUpdate": "", "timeOfUpdate": "" } }, function (error, response) {
             (0, _chai.expect)(response.statusCode).to.equal(200);
             done();

@@ -9,18 +9,26 @@ app.use(bodyParser.json());
 const validateParcel = (parcel) => { 
     const valid = Joi.string().min(3).required();
     const validId = Joi.number().min(1).required();
+    const leaveEmpty = Joi.any();
      const schema = {
-         parcelName: valid,
-         parcelWeight: valid, 
-         parcelFee: valid, 
-         collectionAddress: valid, 
-         collectionCity: valid, 
-         collectionState: valid, 
-         collectionDate: valid, 
-         destinationAddress: valid,  
-         destinationCity: valid, 
-         destinationState: valid, 
-         userId: validId
+        id: validId,
+        parcelName: valid,
+        parcelWeight: valid, 
+        parcelFee: valid, 
+        collectionAddress: valid, 
+        collectionCity: valid, 
+        collectionState: valid, 
+        collectionDate: valid, 
+        destinationAddress: valid,  
+        destinationCity: valid, 
+        destinationState: valid, 
+        userId: validId,          
+        parcelStatus: leaveEmpty, 
+        currentLocationAddress: leaveEmpty, 
+        currentLocationCity: leaveEmpty,
+        currentLocationState: leaveEmpty, 
+        dateOfUpdate: leaveEmpty, 
+        timeOfUpdate: leaveEmpty
      };
     return Joi.validate(parcel, schema);
 };

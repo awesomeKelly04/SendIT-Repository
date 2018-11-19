@@ -32,6 +32,7 @@ var users = _sendITData2.default.users;
 var app = (0, _express2.default)();
 app.use(_express2.default.json());
 app.use(_bodyParser2.default.json());
+app.use(_bodyParser2.default.text());
 
 var AppControllers = function () {
 	function AppControllers() {

@@ -2,10 +2,10 @@ import server from '../server';
 
 var serverInstance;
 
-beforeEach(function (done) {
+beforeEach( (done) => {
     serverInstance = server.run(done);
 });
 
-afterEach(function (done) {
+afterEach( (done) => {
     serverInstance.close(done);
 });

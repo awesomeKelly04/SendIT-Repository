@@ -1,11 +1,13 @@
-import Joi from 'joi';
 import express from 'express';
+import bodyParser from 'body-parser';
 import sendITData from '../Store/sendITData';
+import dataValidator from '../validation/dataValidator';
 const parcels = sendITData.parcels;
 const users = sendITData.users;
 
 const app = express();
 app.use(express.json());
+app.use(bodyParser.json());
 
 class AppControllers{
 	
@@ -50,7 +52,7 @@ class AppControllers{
 
 		if(parcel.parcelStatus !== "" ) return res.status(404).send('Sorry, this parcel order has been processed and cannot be cancelled at this point.');
 
-		const { error } = validateParcelCancelOrder(req.body);
+		const { error } = dataValidator.validateParcelCancelOrder(req.body);
 		if(error) return res.status(404).send(error.details[0].message);
 
 		parcel.parcelStatus = req.body.parcelStatus;
@@ -58,7 +60,7 @@ class AppControllers{
 	}
 
 	static createParcel (req, res) {
-		const { error } = validateParcel(req.body);
+		const { error } = dataValidator.validateParcel(req.body);
 		if(error) return res.status(404).send(error.details[0].message);
    
 		const newParcel = {
@@ -85,32 +87,5 @@ class AppControllers{
 		res.send(newParcel);
    }
 }
-
-const validateParcel = (parcel) => { 
-	const valid = Joi.string().min(3).required();
- 	const schema = {
- 		parcelName: valid,
- 		parcelWeight: valid, 
- 		parcelFee: valid, 
- 		collectionAddress: valid, 
- 		collectionCity: valid, 
- 		collectionState: valid, 
- 		collectionDate: valid, 
- 		destinationAddress: valid,  
- 		destinationCity: valid, 
- 		destinationState: valid, 
- 		userId: valid
- 	};
-	return Joi.validate(parcel, schema);
-};
-
-const validateParcelCancelOrder = (parcel) => { 
-	const valid = Joi.string().min(3).required();
- 	const schema = {
- 		parcelStatus: valid
-	};
-
- 	return Joi.validate(parcel, schema);
-};
 
 export default AppControllers;

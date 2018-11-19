@@ -8,7 +8,7 @@ const app = express();
     app.use(bodyParser.json());
     app.use(appAPI);
 
-    var server = app.listen(PORT, function () {
+    var server = app.listen(PORT, () => {
         console.log('started');
 
         if (callback) {
@@ -16,7 +16,7 @@ const app = express();
         }
     });
 
-    server.on('close', function () {
+    server.on('close', () => {
         console.log('closed');
     });
 

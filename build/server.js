@@ -14,14 +14,14 @@ var _appRouter2 = _interopRequireDefault(_appRouter);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var PORT = process.env.PORT || 8800;
 var app = (0, _express2.default)();
 
-function run(callback) {
-
+var run = function run(callback) {
     app.use(_bodyParser2.default.json());
     app.use(_appRouter2.default);
 
-    var server = app.listen(8800, function () {
+    var server = app.listen(PORT, function () {
         console.log('started');
 
         if (callback) {
@@ -34,7 +34,7 @@ function run(callback) {
     });
 
     return server;
-}
+};
 
 if (require.main === module) {
     run();

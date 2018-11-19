@@ -9,7 +9,7 @@ var _chai = require('chai');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 describe('api', function () {
-    it('should return Welcome to sendIT API', function (done) {
+    it('should return Welcome to SendIT API', function (done) {
         _request2.default.get('http://localhost:8800/', function (error, response) {
             (0, _chai.expect)(response.statusCode).to.equal(200);
             done();

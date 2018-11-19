@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 const validateParcel = (parcel) => { 
     const valid = Joi.string().min(3).required();
     const validId = Joi.number().min(1).required();
-    const leaveEmpty = Joi.any();
+    const userChoice = Joi.any();
      const schema = {
         id: validId,
         parcelName: valid,
@@ -23,12 +23,12 @@ const validateParcel = (parcel) => {
         destinationCity: valid, 
         destinationState: valid, 
         userId: validId,          
-        parcelStatus: leaveEmpty, 
-        currentLocationAddress: leaveEmpty, 
-        currentLocationCity: leaveEmpty,
-        currentLocationState: leaveEmpty, 
-        dateOfUpdate: leaveEmpty, 
-        timeOfUpdate: leaveEmpty
+        parcelStatus: userChoice, 
+        currentLocationAddress: userChoice, 
+        currentLocationCity: userChoice,
+        currentLocationState: userChoice, 
+        dateOfUpdate: userChoice, 
+        timeOfUpdate: userChoice
      };
     return Joi.validate(parcel, schema);
 };

@@ -1,18 +1,26 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _joi = require('joi');
-
-var _joi2 = _interopRequireDefault(_joi);
 
 var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
+var _bodyParser = require('body-parser');
+
+var _bodyParser2 = _interopRequireDefault(_bodyParser);
+
 var _sendITData = require('../Store/sendITData');
 
 var _sendITData2 = _interopRequireDefault(_sendITData);
+
+var _dataValidator = require('../validation/dataValidator');
+
+var _dataValidator2 = _interopRequireDefault(_dataValidator);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23,6 +31,7 @@ var users = _sendITData2.default.users;
 
 var app = (0, _express2.default)();
 app.use(_express2.default.json());
+app.use(_bodyParser2.default.json());
 
 var AppControllers = function () {
 	function AppControllers() {
@@ -85,8 +94,8 @@ var AppControllers = function () {
 
 			if (parcel.parcelStatus !== "") return res.status(404).send('Sorry, this parcel order has been processed and cannot be cancelled at this point.');
 
-			var _validateParcelCancel = validateParcelCancelOrder(req.body),
-			    error = _validateParcelCancel.error;
+			var _dataValidator$valida = _dataValidator2.default.validateParcelCancelOrder(req.body),
+			    error = _dataValidator$valida.error;
 
 			if (error) return res.status(404).send(error.details[0].message);
 
@@ -96,8 +105,8 @@ var AppControllers = function () {
 	}, {
 		key: 'createParcel',
 		value: function createParcel(req, res) {
-			var _validateParcel = validateParcel(req.body),
-			    error = _validateParcel.error;
+			var _dataValidator$valida2 = _dataValidator2.default.validateParcel(req.body),
+			    error = _dataValidator$valida2.error;
 
 			if (error) return res.status(404).send(error.details[0].message);
 
@@ -129,29 +138,4 @@ var AppControllers = function () {
 	return AppControllers;
 }();
 
-var validateParcel = function validateParcel(parcel) {
-	var valid = _joi2.default.string().min(3).required();
-	var schema = {
-		parcelName: valid,
-		parcelWeight: valid,
-		parcelFee: valid,
-		collectionAddress: valid,
-		collectionCity: valid,
-		collectionState: valid,
-		collectionDate: valid,
-		destinationAddress: valid,
-		destinationCity: valid,
-		destinationState: valid,
-		userId: valid
-	};
-	return _joi2.default.validate(parcel, schema);
-};
-
-var validateParcelCancelOrder = function validateParcelCancelOrder(parcel) {
-	var valid = _joi2.default.string().min(3).required();
-	var schema = {
-		parcelStatus: valid
-	};
-
-	return _joi2.default.validate(parcel, schema);
-};
+exports.default = AppControllers;

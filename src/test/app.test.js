@@ -26,7 +26,7 @@ describe('api', () => {
 
     it('should fail on parcel with the id 20',  (done) =>  {
         request.get('http://localhost:8800/api/v1/parcels/20',  (error, response) =>  {
-            expect(response.statusCode).to.equal(500);
+            expect(response.statusCode).to.equal(400);
             done();
         });
     });
@@ -47,7 +47,7 @@ describe('api', () => {
 
     it('should fail on user with the id 20',  (done) =>  {
         request.get('http://localhost:8800/api/v1/users/20',  (error, response) =>  {
-            expect(response.statusCode).to.equal(500);
+            expect(response.statusCode).to.equal(400);
             done();
         });
     });

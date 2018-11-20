@@ -5,6 +5,7 @@ import promise from 'bluebird';
 import dataValidator from '../validation/dataValidator';
 import Parcels from '../Model/parcels';
 import Users from '../Model/users';
+const { DATABASE_URL } = process.env;
 
 const app = express();
 app.use(express.json());
@@ -16,7 +17,7 @@ const options = {
 };
 
 const pgp = pgPromise(options);
-const connectionString = process.env.DATABASE_URL || 'postgres://postgres:Awesome$0088@localhost:5432/senditdb';
+const connectionString = DATABASE_URL || 'postgres:Awesome$0088@db:5432/senditdb';
 const db = pgp(connectionString);
 
 class AppControllers{

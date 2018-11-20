@@ -7,8 +7,6 @@ services:
   - postgresql
 addons:
   postgresql: "9.6"
-before_script:
-  - psql -c "CREATE DATABASE sendit_test;" -U postgres
 script: 
   - npm run test
 after_success: 

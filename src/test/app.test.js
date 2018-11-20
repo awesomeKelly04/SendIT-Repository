@@ -10,23 +10,23 @@ describe('api', () => {
         });
     });
 
-    it('should return all percels',  (done) =>  {
+    it('should return all parcels',  (done) =>  {
         request.get('http://localhost:8800/api/v1/parcels',  (error, response) =>  {
             expect(response.statusCode).to.equal(200);
             done();
         });
     });
 
-    it('should return percel with the id 2',  (done) =>  {
+    it('should return parcel with the id 2',  (done) =>  {
         request.get('http://localhost:8800/api/v1/parcels/2',  (error, response) =>  {   
             expect(response.statusCode).to.equal(200);
             done();
         });
     });
 
-    it('should fail on percel with the id 20',  (done) =>  {
+    it('should fail on parcel with the id 20',  (done) =>  {
         request.get('http://localhost:8800/api/v1/parcels/20',  (error, response) =>  {
-            expect(response.statusCode).to.equal(404);
+            expect(response.statusCode).to.equal(500);
             done();
         });
     });
@@ -47,7 +47,7 @@ describe('api', () => {
 
     it('should fail on user with the id 20',  (done) =>  {
         request.get('http://localhost:8800/api/v1/users/20',  (error, response) =>  {
-            expect(response.statusCode).to.equal(404);
+            expect(response.statusCode).to.equal(500);
             done();
         });
     });
@@ -61,7 +61,7 @@ describe('api', () => {
 
      it('should fail when there is no parcels of user with the id 30',  (done) =>  {
         request.get('http://localhost:8800/api/v1/users/30/parcels',  (error, response) =>  {
-            expect(response.statusCode).to.equal(404);
+            expect(response.statusCode).to.equal(200);
             done();
         });
     });
@@ -81,7 +81,7 @@ describe('api', () => {
     });
 
     it('should return a new parcel on POST',  (done) =>  {
-        request.post('http://localhost:8800/api/v1/parcels', {json: true, body: {"id": 6, "parcelName": "Fan", "parcelWeight": "23kg", "parcelFee": "N800", "collectionAddress": "No 3, Block road, Narayi", 
+        request.post('http://localhost:8800/api/v1/parcels', {json: true, body: {"parcelName": "Fan", "parcelWeight": "23kg", "parcelFee": "N800", "collectionAddress": "No 3, Block road, Narayi", 
 		"collectionCity": "Kaduna", "collectionState": "Kaduna", "collectionDate": "09/11/2018", "destinationAddress": "No 2, Wuse", 
 		"destinationCity": "Abuja", "destinationState": "FCT", "userId": 2, "parcelStatus": "", "currentLocationAddress": "", 
         "currentLocationCity": "","currentLocationState": "", "dateOfUpdate": "", "timeOfUpdate": ""}},  (error, response) =>  {  
@@ -91,7 +91,7 @@ describe('api', () => {
     });
 
     it('should fail on a new parcel on POST',  (done) =>  {
-        request.post('http://localhost:8800/api/v1/parcels', {json: true, body: {"id": "6", "parcelName": "", 
+        request.post('http://localhost:8800/api/v1/parcels', {json: true, body: {"parcelName": "", 
         "parcelWeight": "", "parcelFee": "", "collectionAddress": "", "collectionCity": "", "collectionState": "", "collectionDate": "", "destinationAddress": "", 
 		"destinationCity": "", "destinationState": "", "userId": "0"}},  (error, response) =>  {  
             expect(response.statusCode).to.equal(404);

@@ -1,96 +1,188 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import sendITData from '../Store/sendITData';
+import pgPromise from 'pg-promise';
+import promise from 'bluebird';
 import dataValidator from '../validation/dataValidator';
-const parcels = sendITData.parcels;
-const users = sendITData.users;
+import Parcels from '../Model/parcels';
+import Users from '../Model/users';
 
 const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 
+const options = {
+  promiseLib: promise
+};
+
+const pgp = pgPromise(options);
+const connectionString = process.env.DATABASE_URL || 'postgres://postgres:Awesome$0088@localhost:5432/senditdb';
+const db = pgp(connectionString);
+
 class AppControllers{
 	
-	static default(req, res) {
+	static default(req, res, next) {
 		res.send("Welcome To SendIT API");
 	}
 
-	static getAllParcels(req, res) {
-		res.send(parcels);
+	static getAllParcels(req, res, next) {
+		db.any('select * from "SendIT".parcels order by id asc')
+		.then((data) => {
+			res.status(200)
+			.json({
+				status: 'success',
+				data: data,
+				message: 'Retrieved ALL Parcels'
+			});
+		})
+		.catch((err) => {
+			res.status(400)
+        	.json({
+          		status: 'fail',
+          		message: err.message
+        	});	
+		});
 	}
 
-	static getParcel (req, res) {
-		const parcel = parcels.find(p => p.id === parseInt(req.params.id, 10));
-		if(!parcel) return res.status(404).send('The parcel with the given ID was not found');
-		res.send(parcel);
+	static getParcel (req, res, next) {
+		const parcel = new Parcels();
+		parcel.id = parseInt(req.params.id)
+  		db.one('select * from "SendIT".parcels where id = $1', parcel.id)
+    	.then((data) => {
+      		res.status(200)
+        	.json({
+          		status: 'success',
+          		data: data,
+          		message: 'Retrieved ONE Parcel'
+        	});
+    	})
+    	.catch((err) => {
+			res.status(400)
+        	.json({
+          		status: 'fail',
+          		message: err.message + ' Please check your parcel number.'
+        	});			  
+    	});
 	}
 	
-	static getAllUsers (req, res) {
-		res.send(users);
-	}
-
-	static getUser (req, res) {
-		const user = users.find(u => u.id === parseInt(req.params.id, 10));
-		if(!user) return res.status(404).send('The user with the given ID was not found');
-		res.send(user);
-	}
-
-	static getUserParcels (req, res) {
-		const user = users.find(u => u.id === parseInt(req.params.userId, 10));
-		if(!user) return res.status(404).send('The user with the given ID was not found');
-	   
-		const userParcels = [];
-		parcels.forEach(parcel => {
-			if(parcel.userId === parseInt(req.params.userId, 10)){
-				userParcels.push(parcel);
-			}
+	static getAllUsers (req, res, next) {
+		db.any('select * from "SendIT".users order by id asc')
+		.then((data) => {
+			res.status(200)
+			.json({
+				status: 'success',
+				data: data,
+				message: 'Retrieved ALL Users'
+			});
+		})
+		.catch((err) => {
+			res.status(400)
+        	.json({
+          		status: 'fail',
+          		message: err.message
+        	});	
 		});
-   
-		if(!userParcels) return res.status(404).send('The parcel with the given ID was not found');
-		res.send(userParcels);
+	}
+
+	static getUser (req, res, next) {
+		const user = new Users();
+		user.id = parseInt(req.params.id);
+  		db.one('select * from "SendIT".users where id = $1', user.id)
+    	.then((data) => {
+      		res.status(200)
+        	.json({
+          		status: 'success',
+          		data: data,
+          		message: 'Retrieved ONE User'
+        	});
+    	})
+    	.catch((err) => {
+			res.status(400)
+        	.json({
+          		status: 'fail',
+          		message: err.message + ' Please check user id.'
+        	});	
+    	});
+	}
+
+	static getUserParcels (req, res, next) {
+		const user = new Users();
+		user.id = parseInt(req.params.userId);
+  		db.any('select * from "SendIT".parcels where "userId" = $1 order by id asc', user.id)
+    	.then((data) => {
+			if([]){
+				res.status(200)
+				.json({
+					status: 'success',
+					data: data,
+					message: 'No user with id'
+				});
+			}
+			else{
+				res.status(200)
+				.json({
+					status: 'success',
+					data: data,
+					message: 'Retrieved ALL User parcels'
+				});
+			}      		
+    	})
+    	.catch((err) => {
+			res.status(400)
+        	.json({
+          		status: 'fail',
+          		message: err.message
+        	});	
+    	});
    	}
 
-	static updateUserStatus (req, res) {
-		const parcel = parcels.find(p => p.id === parseInt(req.params.id, 10));
-		if(!parcel) return res.status(404).send('The parcel with the given ID was not found');
-
-		if(parcel.parcelStatus !== "" ) return res.status(404).send('Sorry, this parcel order has been processed and cannot be cancelled at this point.');
-
+	static updateParcelStatus (req, res, next) {
 		const { error } = dataValidator.validateParcelCancelOrder(req.body);
 		if(error) return res.status(404).send(error.details[0].message);
 
+		const parcel = new Parcels();
+		parcel.id = parseInt(req.params.id);
 		parcel.parcelStatus = req.body.parcelStatus;
-		res.send(parcel);
+		db.none('update "SendIT".parcels set "parcelStatus" = $1 where id=$2',
+    		[parcel.parcelStatus, parcel.id])
+			.then( () => {
+			res.status(200)
+			.json({
+				status: 'success',
+				message: 'Updated parcel'
+			});
+		})
+		.catch( (err) => {
+			res.status(400)
+        	.json({
+          		status: 'fail',
+          		message: err.message
+        	});	
+		});
 	}
 
-	static createParcel (req, res) {
+	static createParcel (req, res, next) {
 		const { error } = dataValidator.validateParcel(req.body);
 		if(error) return res.status(404).send(error.details[0].message);
-   
-		const newParcel = {
-			id: parcels.length + 1, 
-			parcelName: req.body.parcelName,  
-			parcelWeight: req.body.parcelWeight, 
-			parcelFee: req.body.parcelFee, 
-			collectionAddress: req.body.collectionAddress, 
-			collectionCity: req.body.collectionCity, 
-			collectionState: req.body.collectionState, 
-			collectionDate: req.body.collectionDate, 
-			destinationAddress: req.body.destinationAddress, 
-			destinationCity: req.body.destinationCity, 
-			destinationState: req.body.destinationState, 
-			userId: req.body.userId, 
-			parcelStatus: req.body.parcelStatus, 
-			currentLocationAddress: req.body.currentLocationAddress, 
-			currentLocationCity: req.body.currentLocationCity,
-			currentLocationState: req.body.currentLocationState, 
-			dateOfUpdate: req.body.dateOfUpdate, 
-			timeOfUpdate: req.body.timeOfUpdate
-		};
 		
-		parcels.push(newParcel);
-		res.send(newParcel);
+		req.body.userId = parseInt(req.body.userId);
+  		db.none('insert into "SendIT".parcels ("parcelName", "parcelWeight", "parcelFee", "collectionAddress", "collectionCity", "collectionState", "collectionDate", "destinationAddress", "destinationCity", "destinationState",  "userId", "parcelStatus", "currentLocationAddress", "currentLocationCity", "currentLocationState", "dateOfUpdate", "timeOfUpdate")' +
+      	'values(${parcelName}, ${parcelWeight}, ${parcelFee}, ${collectionAddress}, ${collectionCity}, ${collectionState}, ${collectionDate}, ${destinationAddress}, ${destinationCity}, ${destinationState}, ${userId}, ${parcelStatus}, ${currentLocationAddress}, ${currentLocationCity}, ${currentLocationState}, ${dateOfUpdate}, ${timeOfUpdate})',
+    	req.body)
+    	.then( () => {
+      		res.status(200)
+        	.json({
+          		status: 'success',
+          		message: 'Created new parcel'
+        	});
+    	})
+    	.catch( (err) => {
+			res.status(400)
+        	.json({
+          		status: 'fail',
+          		message: err.message
+        	});	
+    	}); 
    }
 }
 

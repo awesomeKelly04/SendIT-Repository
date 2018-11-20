@@ -11,7 +11,6 @@ const validateParcel = (parcel) => {
     const validId = Joi.number().min(1).required();
     const userChoice = Joi.any();
      const schema = {
-        id: validId,
         parcelName: valid,
         parcelWeight: valid, 
         parcelFee: valid, 

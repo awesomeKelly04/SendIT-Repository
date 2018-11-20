@@ -15,7 +15,7 @@ router.get('/api/v1/users/:id', AppControllers.getUser );
 
 router.get('/api/v1/users/:userId/parcels', AppControllers.getUserParcels );
 
-router.put('/api/v1/parcels/:id/cancel', AppControllers.updateUserStatus );
+router.put('/api/v1/parcels/:id/cancel', AppControllers.updateParcelStatus );
 
 router.post('/api/v1/parcels', AppControllers.createParcel );
 

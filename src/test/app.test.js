@@ -66,26 +66,9 @@ describe('api', () => {
         });
     });
 
-    it('should return a parcel with the id 3 and its parcelStatus showing cancel',  (done) =>  {
-        request.put('http://localhost:8800/api/v1/parcels/3/cancel', {json: true, body: { "parcelStatus": "cancel"}},  (error, response) =>  {  
-            expect(response.statusCode).to.equal(200);
-            done();
-        });
-    });
-
     it('should return a updated parcel on POST',  (done) =>  {
         request.put('http://localhost:8800/api/v1/parcels/3/cancel', {json: true, body: { "parcelStatus": "" }},  (error, response) =>  {  
             expect(response.statusCode).to.equal(404);
-            done();
-        });
-    });
-
-    it('should return a new parcel on POST',  (done) =>  {
-        request.post('http://localhost:8800/api/v1/parcels', {json: true, body: {"parcelName": "Fan", "parcelWeight": "23kg", "parcelFee": "N800", "collectionAddress": "No 3, Block road, Narayi", 
-		"collectionCity": "Kaduna", "collectionState": "Kaduna", "collectionDate": "09/11/2018", "destinationAddress": "No 2, Wuse", 
-		"destinationCity": "Abuja", "destinationState": "FCT", "userId": 2, "parcelStatus": "", "currentLocationAddress": "", 
-        "currentLocationCity": "","currentLocationState": "", "dateOfUpdate": "", "timeOfUpdate": ""}},  (error, response) =>  {  
-            expect(response.statusCode).to.equal(200);
             done();
         });
     });

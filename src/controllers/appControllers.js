@@ -1,8 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import pgPromise from 'pg-promise';
-import promise from 'bluebird';
 import dataValidator from '../validation/dataValidator';
+import AppData from '../Store/sendITData';
 import Parcels from '../Model/parcels';
 import Users from '../Model/users';
 
@@ -11,179 +10,97 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 
-const options = {
-  promiseLib: promise
-};
-
-const pgp = pgPromise(options).native;
-const connectionString = process.env['DATABASE_URL'] || 'postgres://postgres:Awesome$0088@localhost:5432/senditdb';
-const db = pgp(connectionString);
-
 class AppControllers{
 	
-	static default(req, res, next) {
+	static default(req, res) {
 		res.send("Welcome To SendIT API");
 	}
 
-	static getAllParcels(req, res, next) {
-		db.any('select * from "SendIT".parcels order by id asc')
-		.then((data) => {
-			res.status(200)
-			.json({
-				status: 'success',
-				data: data,
-				message: 'Retrieved ALL Parcels'
-			});
-		})
-		.catch((err) => {
-			res.status(400)
-        	.json({
-          		status: 'fail',
-          		message: err.message
-        	});	
-		});
+	static getAllParcels(req, res) {
+		const text = 'SELECT * FROM "SendIT".parcels order by id asc';
+		AppData.getAny(req, res, text);
 	}
 
-	static getParcel (req, res, next) {
+	static getParcel (req, res) {			
+		if (!req.params.id) return res.status(400).send({'message': 'Missing parcel number'});
+		
 		const parcel = new Parcels();
 		parcel.id = parseInt(req.params.id)
-  		db.one('select * from "SendIT".parcels where id = $1', parcel.id)
-    	.then((data) => {
-      		res.status(200)
-        	.json({
-          		status: 'success',
-          		data: data,
-          		message: 'Retrieved ONE Parcel'
-        	});
-    	})
-    	.catch((err) => {
-			res.status(400)
-        	.json({
-          		status: 'fail',
-          		message: err.message + ' Please check your parcel number.'
-        	});			  
-    	});
+		const text = 'SELECT * FROM "SendIT".parcels where id = $1';
+		AppData.getOne(req, res, text, parcel.id);		
 	}
 	
-	static getAllUsers (req, res, next) {
-		db.any('select * from "SendIT".users order by id asc')
-		.then((data) => {
-			res.status(200)
-			.json({
-				status: 'success',
-				data: data,
-				message: 'Retrieved ALL Users'
-			});
-		})
-		.catch((err) => {
-			res.status(400)
-        	.json({
-          		status: 'fail',
-          		message: err.message
-        	});	
-		});
+	static getAllUsers (req, res) {
+		const text = 'SELECT * FROM "SendIT".users order by id asc';
+		AppData.getAny(req, res, text);
 	}
 
-	static getUser (req, res, next) {
+	static getUser (req, res) {
+		if (!req.params.id) return res.status(400).send({'message': 'Missing user number'});
+		
 		const user = new Users();
 		user.id = parseInt(req.params.id);
-  		db.one('select * from "SendIT".users where id = $1', user.id)
-    	.then((data) => {
-      		res.status(200)
-        	.json({
-          		status: 'success',
-          		data: data,
-          		message: 'Retrieved ONE User'
-        	});
-    	})
-    	.catch((err) => {
-			res.status(400)
-        	.json({
-          		status: 'fail',
-          		message: err.message + ' Please check user id.'
-        	});	
-    	});
+		const text = 'SELECT * FROM "SendIT".users where id = $1';
+		AppData.getOne(req, res, text, user.id);
 	}
 
-	static getUserParcels (req, res, next) {
+	static getUserParcels (req, res) {
+		if (!req.params.id) return res.status(400).send({'message': 'Missing user number'});
+		
 		const user = new Users();
-		user.id = parseInt(req.params.userId);
-  		db.any('select * from "SendIT".parcels where "userId" = $1 order by id asc', user.id)
-    	.then((data) => {
-			if([]){
-				res.status(200)
-				.json({
-					status: 'success',
-					data: data,
-					message: 'No user with id'
-				});
-			}
-			else{
-				res.status(200)
-				.json({
-					status: 'success',
-					data: data,
-					message: 'Retrieved ALL User parcels'
-				});
-			}      		
-    	})
-    	.catch((err) => {
-			res.status(400)
-        	.json({
-          		status: 'fail',
-          		message: err.message
-        	});	
-    	});
+		user.id = parseInt(req.params.id);
+		const text = 'SELECT * FROM "SendIT".parcels where "userId" = $1 order by id asc';
+		AppData.getAny(req, res, text, user.id);
    	}
 
-	static updateParcelStatus (req, res, next) {
+	static updateParcelStatus (req, res) {
+		if (!req.params.id) return res.status(400).send({'message': 'Missing user number'});
+
 		const { error } = dataValidator.validateParcelCancelOrder(req.body);
 		if(error) return res.status(404).send(error.details[0].message);
 
 		const parcel = new Parcels();
-		parcel.id = parseInt(req.params.id);
+		parcel.id = parseInt(req.params.id)
 		parcel.parcelStatus = req.body.parcelStatus;
-		db.none('update "SendIT".parcels set "parcelStatus" = $1 where id=$2',
-    		[parcel.parcelStatus, parcel.id])
-			.then( () => {
-			res.status(200)
-			.json({
-				status: 'success',
-				message: 'Updated parcel'
-			});
-		})
-		.catch( (err) => {
-			res.status(400)
-        	.json({
-          		status: 'fail',
-          		message: err.message
-        	});	
-		});
+
+		const text = 'SELECT * FROM "SendIT".parcels where "id" = $1';
+		const text1 = 'update "SendIT".parcels set "parcelStatus" = $1 where id = $2';
+		const values = [
+			parcel.parcelStatus, parcel.id
+		];
+		
+		AppData.forUpdateParcelStatus (req, res, text, text1, values, parcel.id)
 	}
 
-	static createParcel (req, res, next) {
+	static createParcel (req, res) {
 		const { error } = dataValidator.validateParcel(req.body);
-		if(error) return res.status(404).send(error.details[0].message);
-		
+		if(error) return res.status(404).send(error.details[0].message);		
+
 		req.body.userId = parseInt(req.body.userId);
-  		db.none('insert into "SendIT".parcels ("parcelName", "parcelWeight", "parcelFee", "collectionAddress", "collectionCity", "collectionState", "collectionDate", "destinationAddress", "destinationCity", "destinationState",  "userId", "parcelStatus", "currentLocationAddress", "currentLocationCity", "currentLocationState", "dateOfUpdate", "timeOfUpdate")' +
-      	'values(${parcelName}, ${parcelWeight}, ${parcelFee}, ${collectionAddress}, ${collectionCity}, ${collectionState}, ${collectionDate}, ${destinationAddress}, ${destinationCity}, ${destinationState}, ${userId}, ${parcelStatus}, ${currentLocationAddress}, ${currentLocationCity}, ${currentLocationState}, ${dateOfUpdate}, ${timeOfUpdate})',
-    	req.body)
-    	.then( () => {
-      		res.status(200)
-        	.json({
-          		status: 'success',
-          		message: 'Created new parcel'
-        	});
-    	})
-    	.catch( (err) => {
-			res.status(400)
-        	.json({
-          		status: 'fail',
-          		message: err.message
-        	});	
-    	}); 
-   }
+		const createQuery = 'INSERT INTO "SendIT".parcels ("parcelName", "parcelWeight", "parcelFee", "collectionAddress", "collectionCity", "collectionState", "collectionDate", "destinationAddress", "destinationCity", "destinationState",  "userId", "parcelStatus", "currentLocationAddress", "currentLocationCity", "currentLocationState", "dateOfUpdate", "timeOfUpdate")' +
+		'VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)';
+		const values = [
+			req.body.parcelName,
+			req.body.parcelWeight,      
+			req.body.parcelFee,
+			req.body.collectionAddress,
+			req.body.collectionCity,
+			req.body.collectionState,
+			req.body.collectionDate,
+			req.body.destinationAddress,      
+			req.body.destinationCity,
+			req.body.destinationState,
+			req.body.userId,
+			req.body.parcelStatus,
+			req.body.currentLocationAddress,
+			req.body.currentLocationCity,      
+			req.body.currentLocationState,
+			req.body.dateOfUpdate,
+			req.body.timeOfUpdate
+		];
+
+  		AppData.noneOperation (req, res, text, values);
+   	}
 }
 
 export default AppControllers;

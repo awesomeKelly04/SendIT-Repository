@@ -3,6 +3,10 @@ node_js:
   - stable
 install :
   - npm install
+services:
+  - postgresql
+addons:
+  postgresql: "9.6"
 script: 
   - npm run test
 after_success: 

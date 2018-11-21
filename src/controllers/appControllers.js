@@ -15,8 +15,8 @@ const options = {
   promiseLib: promise
 };
 
-const pgp = pgPromise(options);
-const connectionString = process.env.DATABASE_URL || 'postgres://postgres:Awesome$0088@localhost:5432/senditdb';
+const pgp = pgPromise(options).native;
+const connectionString = process.env['DATABASE_URL'] || 'postgres://postgres:Awesome$0088@localhost:5432/senditdb';
 const db = pgp(connectionString);
 
 class AppControllers{

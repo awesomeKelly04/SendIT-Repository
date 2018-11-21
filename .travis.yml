@@ -3,10 +3,11 @@ node_js:
   - stable
 install :
   - npm install
-services:
-  - postgresql
-addons:
-  postgresql: "9.6"
+env:
+  global: 
+    - DATABASE_URL=postgres://gcyngqxo:6Q5c7AbgpaeSRU2ZRO74tojCYOf88d03@stampy.db.elephantsql.com:5432/gcyngqxo
+before script:
+  - 
 script: 
   - npm run test
 after_success: 

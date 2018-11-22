@@ -10,12 +10,14 @@
     "test": "nyc mocha src/test/*.js --require babel-register",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "babel src -d build",
-    "start": "nodemon src/server.js --exec babel-node"
+    "start": "nodemon src/server.js --exec babel-node",
+    "setupdb": "set NODE_ENV=test&& babel-node src/createTables.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.2",
+    "bcryptjs": "^2.4.3",
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
     "dotenv": "^6.1.0",

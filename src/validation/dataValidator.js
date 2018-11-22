@@ -41,34 +41,34 @@ const validateParcelCancelOrder = (parcel) => {
      return Joi.validate(parcel, schema);
 };
 
-// const validateUserCreate = (user) => {
-//     const valid = Joi.string().min(3).required();
-//     const validPassword = Joi.string().min(6).required();
-//     const userChoice = Joi.any();
-//      const schema = {
-//         firstName: valid, 
-//         lastName: valid, 
-//         email: valid, 
-//         phoneNumber: valid, 
-//         username: valid, 
-//         password: validPassword, 
-//         category: valid, 
-//         createdDate: userChoice
-//      };
-//     return Joi.validate(user, schema);
-// }
+const validateUserCreate = (user) => {
+    const valid = Joi.string().min(3).required();
+    const validPassword = Joi.string().min(6).required();
+    const userChoice = Joi.any();
+     const schema = {
+        firstName: valid,
+        lastName: valid, 
+        email: valid, 
+        phoneNumber: valid, 
+        username: valid, 
+        password: validPassword, 
+        category: userChoice, 
+        createdDate: userChoice
+    };
+    return Joi.validate(user, schema);
+}
 
-// const validateUserLogin = (user) => {
-//     const valid = Joi.string().min(6).required();
-//      const schema = {
-//         password: valid
-//      };
-//     return Joi.validate(user, schema);
-// }
+const validateUserLogin = (user) => {
+    const valid = Joi.string().min(6).required();
+     const schema = {
+        password: valid
+     };
+    return Joi.validate(user, schema);
+}
 
 export default {
     validateParcel, 
-    validateParcelCancelOrder 
-    // validateUserCreate, 
-    // validateUserLogin
+    validateParcelCancelOrder, 
+    validateUserCreate, 
+    validateUserLogin
 };

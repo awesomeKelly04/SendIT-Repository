@@ -13,7 +13,7 @@ app.use(bodyParser.text());
 class UserLoginController {
   
   //Login   
-    static async login(req, res) {
+    static login(req, res) {
         if (!req.body.email) {
         return res.status(400).json({'message': 'Missing values'});
         }

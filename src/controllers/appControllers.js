@@ -1,56 +1,46 @@
-import express from 'express';
-import bodyParser from 'body-parser';
 import dataValidator from '../validation/dataValidator';
 import AppData from '../Store/sendITData';
-import Parcels from '../Model/parcels';
-import Users from '../Model/users';
 
-const app = express();
-app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.text());
 
 class AppControllers{
 	
 	static default(req, res) {
 		res.send("Welcome To SendIT API");
-	}
+	}	
 
 	static getAllParcels(req, res) {
-		const text = 'SELECT * FROM "SendIT".parcels order by id asc';
-		AppData.getAny(req, res, text);
+		const query = 'SELECT * FROM "SendIT".parcels order by id asc';
+		AppData.getAll(req, res, query);
 	}
 
 	static getParcel (req, res) {			
-		if (!req.params.id) return res.status(400).send({'message': 'Missing parcel number'});
-		
-		const parcel = new Parcels();
-		parcel.id = parseInt(req.params.id)
-		const text = 'SELECT * FROM "SendIT".parcels where id = $1';
-		AppData.getOne(req, res, text, parcel.id);		
+		if (!req.params.id) {
+			return res.status(400).send({
+				'message': 'Missing parcel number'
+			});
+		}
+	
+		const query = 'SELECT * FROM "SendIT".parcels where id = $1';
+		AppData.getOne(req, res, query, parseInt(req.params.id));		
 	}
 	
 	static getAllUsers (req, res) {
-		const text = 'SELECT * FROM "SendIT".users order by id asc';
-		AppData.getAny(req, res, text);
+		const query = 'SELECT * FROM "SendIT".users order by id asc';
+		AppData.getAll(req, res, query);
 	}
 
 	static getUser (req, res) {
 		if (!req.params.id) return res.status(400).send({'message': 'Missing user number'});
 		
-		const user = new Users();
-		user.id = parseInt(req.params.id);
-		const text = 'SELECT * FROM "SendIT".users where id = $1';
-		AppData.getOne(req, res, text, user.id);
+		const query = 'SELECT * FROM "SendIT".users where id = $1';
+		AppData.getOne(req, res, query, parseInt(req.params.id));
 	}
 
 	static getUserParcels (req, res) {
 		if (!req.params.id) return res.status(400).send({'message': 'Missing user number'});
 		
-		const user = new Users();
-		user.id = parseInt(req.params.id);
-		const text = 'SELECT * FROM "SendIT".parcels where "userId" = $1 order by id asc';
-		AppData.getAny(req, res, text, user.id);
+		const query = 'SELECT * FROM "SendIT".parcels where "userId" = $1 order by id asc';
+		AppData.getAny(req, res, query, parseInt(req.params.id));
    	}
 
 	static updateParcelStatus (req, res) {
@@ -59,17 +49,13 @@ class AppControllers{
 		const { error } = dataValidator.validateParcelCancelOrder(req.body);
 		if(error) return res.status(404).send(error.details[0].message);
 
-		const parcel = new Parcels();
-		parcel.id = parseInt(req.params.id)
-		parcel.parcelStatus = req.body.parcelStatus;
-
-		const text = 'SELECT * FROM "SendIT".parcels where "id" = $1';
-		const text1 = 'update "SendIT".parcels set "parcelStatus" = $1 where id = $2';
+		const query = 'SELECT * FROM "SendIT".parcels where "id" = $1';
+		const query1 = 'update "SendIT".parcels set "parcelStatus" = $1 where id = $2';
 		const values = [
-			parcel.parcelStatus, parcel.id
+			req.body.parcelStatus, parseInt(req.params.id)
 		];
 		
-		AppData.forUpdateParcelStatus (req, res, text, text1, values, parcel.id)
+		AppData.forUpdateParcelStatus (req, res, query, query1, values, parseInt(req.params.id))
 	}
 
 	static createParcel (req, res) {
@@ -99,7 +85,7 @@ class AppControllers{
 			req.body.timeOfUpdate
 		];
 
-  		AppData.noneOperation (req, res, text, values);
+  		AppData.noneOperation (req, res, createQuery, values);
    	}
 }
 

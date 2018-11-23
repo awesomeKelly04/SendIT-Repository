@@ -4,7 +4,7 @@ class AppData{
 	static getAll(req, res, query){
         db.any(query)
         .then( (data) => {
-                res.status(200)
+            return res.status(200)
             .json({
                 status: 'success',
                 data: data
@@ -75,7 +75,7 @@ class AppData{
 	static forUpdateParcelStatus (req, res, query, query1, values, id) {
 		db.one(query, id)
     	.then( (data) => {
-			if(data.parcelStatus !== "") return res.status(400).send("Sorry, you can't cancel parcel order");      		
+			if(data.parcelStatus === "Delivered") return res.status(400).send("Sorry, you can't cancel parcel order");      		
     	})
     	.catch( (err) => {
 			res.status(400)
@@ -85,7 +85,20 @@ class AppData{
         	});	
     	});
 
-		noneOperation (req, res, query1, values, id);
+		db.none(query1, values)
+    	.then( () => {
+      		res.status(200)
+        	.json({
+				status: 'success'
+        	});
+    	})
+    	.catch( (err) => {
+			res.status(400)
+        	.json({
+          		status: 'fail',
+          		message: err.message
+        	});	
+    	});
     }
 }
 

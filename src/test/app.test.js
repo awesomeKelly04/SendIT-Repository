@@ -1,5 +1,12 @@
-import request from 'request';
+import chai from 'chai';
+import chaiHttp from 'chai-http';
 import { expect } from 'chai';
+import request from 'request';
+// import supertest from 'supertest';
+// import appAPI from '../server';
+
+// const should = chai.should();
+chai.use(chaiHttp);
 
 describe('api', () => {
     

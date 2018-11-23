@@ -6,7 +6,7 @@ class AppControllers{
 	
 	static default(req, res) {
 		res.send("Welcome To SendIT API");
-	}
+	}	
 
 	static getAllParcels(req, res) {
 		const query = 'SELECT * FROM "SendIT".parcels order by id asc';

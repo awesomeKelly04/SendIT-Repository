@@ -41,6 +41,29 @@ const validateParcelCancelOrder = (parcel) => {
      return Joi.validate(parcel, schema);
 };
 
+const validateParcelStatusOrder = (parcel) => { 
+    const valid = Joi.string().min(3).required();
+    const userChoice = Joi.any();
+     const schema = {
+         parcelStatus: valid,
+         dateOfUpdate: userChoice,
+         timeOfUpdate: userChoice
+    };
+
+     return Joi.validate(parcel, schema);
+};
+
+const validateParcelDestination = (parcel) => { 
+    const valid = Joi.string().min(3).required();
+     const schema = {
+        destinationAddress: valid,      
+        destinationCity: valid,
+        destinationState: valid
+    };
+
+     return Joi.validate(parcel, schema);
+};
+
 const validateUserCreate = (user) => {
     const valid = Joi.string().min(3).required();
     const validPassword = Joi.string().min(6).required();
@@ -70,5 +93,7 @@ export default {
     validateParcel, 
     validateParcelCancelOrder, 
     validateUserCreate, 
-    validateUserLogin
+    validateUserLogin,
+    validateParcelDestination,
+    validateParcelStatusOrder
 };
